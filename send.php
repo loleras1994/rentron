@@ -1,6 +1,6 @@
 <?php
 // Ρυθμίσεις
-$to = "a.alexandris@rentron.gr";  // βάλε εδώ το δικό σου email
+$to = "alexandris.alex@hotmail.com";  // βάλε εδώ το δικό σου email
 $subject = "Νέο μήνυμα από τη φόρμα επικοινωνίας Rentron.gr";
 
 // Παραλαβή δεδομένων
