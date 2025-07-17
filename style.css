@@ -258,7 +258,7 @@ nav a:hover {
 
 /* Products Section */
 .products {
-  background: #eef2f5;
+  background: #e0ecf5;/*#eef2f5;*/
   padding: 40px 0;
 }
 
@@ -293,7 +293,7 @@ nav a:hover {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: #f1f1f1;
+  background: #e0ecf5; /*#f1f1f1;*/
   padding: 15px;
   border-radius: 8px;
   text-align: center;
@@ -368,10 +368,6 @@ nav a:hover {
   flex-wrap: wrap;
   gap: 40px;
   margin-top: 20px;
-}
-
-.about-columns > div {
-  flex: 1 1 300px;
 }
 
 .page-content h3 {
@@ -1211,3 +1207,6 @@ html {
   text-decoration: none;
 }
 
+.services-overview {
+  background: white; /*#e0ecf5;*/
+}
