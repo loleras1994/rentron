@@ -424,7 +424,7 @@ nav a:hover {
 }
 
 .about-image-band {
-  background: url('/images/factory.jpg') no-repeat center center;
+  background: url('/rentron/images/factory.jpg') no-repeat center center;
   background-size: cover;
   height: 280px;
   margin: 40px 0;
