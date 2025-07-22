@@ -1189,9 +1189,18 @@ html {
 }
 
 .product-description ul {
-  margin: 10px 0 20px;
+  display: table;
+  margin: 0 auto 20px auto;
   padding-left: 20px;
+  list-style-position: outside;
+  text-align: left;
 }
+
+.product-description ul li {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
 
 @media (max-width: 768px), (orientation: landscape) and (max-height: 500px) {
   .product-feature, .product-feature.reverse {
