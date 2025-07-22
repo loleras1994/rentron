@@ -3,84 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welding | Rentron Electronics S.A.</title>
+  <title>Welding Services | Rentron SA</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-  <script src="../main.js" defer></script>
 </head>
 <body>
-	<div class="top-banner">
-		<div class="container">
-			<a href="../files/espa3.pdf" target="_blank">
-				<img src="../images/espa3.jpg" alt="ΕΣΠΑ 3" class="banner-image" />
-			</a>
-		</div>	
-	</div>
+  <div class="top-banner">
+    <div class="container">
+      <a href="../files/espa3.pdf" target="_blank">
+        <img src="../images/espa3.jpg" alt="ΕΣΠΑ 3" class="banner-image" />
+      </a>
+    </div> 
+  </div>
 
-	<header>
-	  <div class="container header-content">
-		<div class="logo">
-		  <a href="index.html">
-			<img src="../images/logo-rentron.png" alt="Rentron Logo" />
-		  </a>
-		</div>
+  <header id="main-header"></header>
 
-		<div class="header-tools">
-			<div class="hamburger" onclick="toggleMenu()">
-			  <span></span>
-			  <span></span>
-			  <span></span>
-			</div>
-			<div class="nav-container">
-				<nav>
-				  <ul>
-					  <li><a href="index.html">Home</a></li>
-					  <li><a href="about.html">About Us</a></li>
-					  <li class="dropdown">
-						  <a href="services.html" class="dropdown-toggle">Services <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="cut.html">Sheet Metal Cutting</a></li>
-							<li><a href="bend.html">Sheet Metal Bending</a></li>
-							<li><a href="weld.html">Welding</a></li>
-							<li><a href="print.html">Silk Screen Printing</a></li>
-							<li><a href="coating.html">Powder Coating</a></li>
-							<li><a href="assy.html">Assembly</a></li>
-						  </ul>
-					  </li>					  
-					  <li class="dropdown">
-						  <a href="javascript:void(0)" class="dropdown-toggle">Racks & Accessories <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="racks.html">Racks</a></li>
-							<li><a href="accessories.html">Accessories</a></li>
-						  </ul>
-					  </li>
-					  <li><a href="special.html">Special Structures</a></li>
-					  <li><a href="contact.html">Contact</a></li>
-				  </ul>
-				</nav>
-			</div>
-			<div class="lang-switcher">
-				<a href="../el/index.html" lang="el">GR</a> | <a href="../en/index.html" lang="en">EN</a>
-			</div>
-		</div>
-	  </div>
-	</header>
-
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <h1>Welding Services</h1>
-      <p>Precision welding for industrial and custom projects.</p>
+      <p>Manual, laser & robotic welding for precision metal assemblies.</p>
     </div>
   </section>
 
+  <!-- SERVICE OVERVIEW -->
   <section class="about">
     <div class="container">
       <h3>Expert Welding Solutions</h3>
-      <p>With more than 40 years of experience, Rentron S.A. provides MIG/MAG and spot welding solutions tailored to the needs of demanding electromechanical constructions. Our skilled welders ensure strength and durability in every connection, meeting international standards of precision and quality.</p>
-      <p>Whether it's structural racks or special frame designs, our welding process guarantees clean seams and reliable joints, ready to withstand mechanical stress in real-world applications.</p>
+      <p>With more than 40 years of experience, Rentron S.A. provides MIG/MAG and spot welding solutions tailored to the needs of demanding electromechanical constructions. Our skilled welders ensure strength and durability in every connection, meeting international standards of precision and quality.Whether it's structural racks or special frame designs, our welding process guarantees clean seams and reliable joints, ready to withstand mechanical stress in real-world applications.</p>
+      <div class="centered-list-wrapper">
+        <ul class="page-content centered-ul">
+          <li>3 MIG/MAG welding stations</li>
+          <li>3 TIG (AC/DC) stations for stainless & aluminum</li>
+		  <li>3 spot welding machines for contact fusing</li>
+          <li>1 precision fiber laser welding unit</li>
+          <li>1 KUKA robotic MIG cell for series production</li>
+          <li>Steel, stainless steel, aluminum capability</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-<div id="footer-placeholder"></div>
+  <!-- APPLICATIONS & PROCESS USE-CASES -->
+  <section class="product-section">
+    <div class="container">
+
+      <div class="product-feature">
+        <img src="../images/welding2.jpg" alt="Manual Welding" class="product-img" />
+        <div class="product-description">
+          <h2>Applications</h2>
+          <ul class="page-content tick-list">
+            <li>MIG/MAG: structural frames, rack chassis, thicker gauge steel</li>
+            <li>TIG: precision seams on stainless & aluminum panels</li>
+            <li>Laser: low-distortion seams on thin or cosmetic parts</li>
+			<li>Spot welding: fast joining of brackets, contact tabs, and panels</li>
+            <li>Robotic MIG (KUKA): repeatable welds for batch production</li>
+            <li>Mixed-process builds: cut → bend → weld workflows</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="product-feature reverse">
+        <img src="../images/welding3.jpg" alt="Welded Screws" class="product-img" />
+        <div class="product-description">
+          <h2>Why Choose Rentron</h2>
+          <ul class="page-content tick-list">
+            <li>Multiple welding processes under one roof</li>
+            <li>Robotic cell for consistency & cycle-time reduction</li>
+            <li>Experienced welders for custom fixtures & prototypes</li>
+            <li>Weld inspection, dressing & prep for coating/painting</li>
+            <li>Full integration with Cutting, Bending & Assembly lines</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about">
+    <div class="container">
+      <h3>Need a Quote or Consultation?</h3>
+      <p class="highlight-quote">Send us your drawings or ask about weld process selection for your part.</p>
+      <a href="contact.html" class="btn">Contact Us →</a>
+    </div>
+  </section>
+
+  <!-- SERVICE NAV -->
+  <section class="service-nav">
+    <div class="container">
+      <div class="service-nav-grid">
+        <a href="bend.html" class="service-nav-box">
+          <span class="nav-label">← Previous</span>
+          <strong>Bending</strong>
+        </a>
+        <a href="coating.html" class="service-nav-box">
+          <span class="nav-label">Next →</span>
+          <strong>Powder Coating</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="../main.js" defer></script>
 </body>
 </html>

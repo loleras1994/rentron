@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sheet Metal Cutting | Rentron</title>
+  <title>Sheet Metal Cutting | Rentron SA</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-  <script defer src="../main.js"></script>
 </head>
 <body>
 	<div class="top-banner">
@@ -17,85 +16,93 @@
 		</div>	
 	</div>
 
-	<header>
-	  <div class="container header-content">
-		<div class="logo">
-		  <a href="index.html">
-			<img src="../images/logo-rentron.png" alt="Rentron Logo" />
-		  </a>
-		</div>
-
-		<div class="header-tools">
-			<div class="hamburger" onclick="toggleMenu()">
-			  <span></span>
-			  <span></span>
-			  <span></span>
-			</div>
-			<div class="nav-container">
-				<nav>
-				  <ul>
-					  <li><a href="index.html">Home</a></li>
-					  <li><a href="about.html">About Us</a></li>
-					  <li class="dropdown">
-						  <a href="services.html" class="dropdown-toggle">Services <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="cut.html">Sheet Metal Cutting</a></li>
-							<li><a href="bend.html">Sheet Metal Bending</a></li>
-							<li><a href="weld.html">Welding</a></li>
-							<li><a href="print.html">Silk Screen Printing</a></li>
-							<li><a href="coating.html">Powder Coating</a></li>
-							<li><a href="assy.html">Assembly</a></li>
-						  </ul>
-					  </li>					  
-					  <li class="dropdown">
-						  <a href="javascript:void(0)" class="dropdown-toggle">Racks & Accessories <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="racks.html">Racks</a></li>
-							<li><a href="accessories.html">Accessories</a></li>
-						  </ul>
-					  </li>
-					  <li><a href="special.html">Special Structures</a></li>
-					  <li><a href="contact.html">Contact</a></li>
-				  </ul>
-				</nav>
-			</div>
-			<div class="lang-switcher">
-				<a href="../el/index.html" lang="el">GR</a> | <a href="../en/index.html" lang="en">EN</a>
-			</div>
-		</div>
-	  </div>
-	</header>
+<header id="main-header"></header>
 
   <!-- HERO SECTION -->
   <section class="hero">
     <div class="container">
-      <h1>Sheet Metal Cutting</h1>
-      <p>Precision laser cutting for all metal applications.</p>
+		<h1>Sheet Metal Cutting</h1>
+		<p>Combined laser and punching capabilities for high-precision sheet metal fabrication.</p>
     </div>
   </section>
 
   <!-- SERVICE DETAILS -->
   <section class="about">
     <div class="container">
-      <h3>High-Precision Laser Cutting</h3>
-      <p>We provide high-precision laser cutting services using state-of-the-art CNC laser systems. Whether for thin sheets or heavy-duty metal, our equipment ensures clean, burr-free cuts with tight tolerances.</p>
-
-      <ul style="text-align: left; max-width: 800px; margin: 30px auto;">
-        <li>⦿ Maximum cutting thickness: up to 20mm steel</li>
-        <li>⦿ Materials: Steel, Stainless Steel, Aluminum</li>
-        <li>⦿ Accuracy: ±0.1 mm</li>
-        <li>⦿ CAD/CAM integration for complex shapes</li>
-        <li>⦿ High repeatability for large series</li>
-      </ul>
-
-      <p style="margin-top: 20px;">Our team is ready to assist you with prototyping or full-scale production. Get in touch to discuss your project!</p>
-      <div class="about-card">
-		<a href="about.html">Contact Us</a>
-	  </div>
-    </div>
+      <h3>Laser & CNC Punching for Sheet Metal</h3>
+      <p>At Rentron SA, we offer a complete range of sheet metal cutting technologies — combining fiber laser and CNC turret punching to cover all geometries, volumes, and material requirements. Whether you need fast prototyping, perforated patterns, or burr-free cuts with tight tolerances, our advanced machinery delivers precise, repeatable results for every project.</p>
+		<div class="centered-list-wrapper">
+			<ul class="page-content centered-ul">
+			  <li>Laser cutting (Bodor) — clean, precise cuts up to 20 mm</li>
+			  <li>Turret punching (Amada Arcade, Vipros, AE) — fast and versatile for complex forms</li>
+			  <li>Supports steel, stainless steel, and aluminum sheets</li>
+			  <li>Accuracy: ±0.1 mm | Max sheet size: 3000 x 1500 mm</li>
+			  <li>CAD/CAM file compatibility (DXF, DWG, STEP)</li>
+			</ul>
+		</div>
+	</div>
   </section>
+
+<section class="product-section">
+	<div class="container">
+	  <div class="product-feature">
+		<img src="../images/cnc_machine.jpg" alt="CNC Machine" class="product-img" />
+		<div class="product-description">
+		  <h2>Applications</h2>
+			<ul class="page-content tick-list">
+			  <li>High-speed repetitive cuts using turret punching (Amada Arcade, Vipros, AE)</li>
+			  <li>Forming louvers, countersinks, dimples, and embossing through punching</li>
+			  <li>Perforated patterns and grid holes with tool-based consistency</li>
+			  <li>Complex contours, irregular shapes, and smooth edges with laser cutting</li>
+			  <li>Cutting thick or delicate materials with minimal heat impact (Bodor laser)</li>
+			</ul>
+		</div>
+	  </div>
+
+	  <div class="product-feature reverse">
+		<img src="../images/laser_machine.jpg" alt="Laser Machine" class="product-img" />
+		<div class="product-description">
+		  <h2>Why Choose Rentron</h2>
+			<ul class="page-content tick-list">
+			  <li>Three Amada punching machines for high throughput</li>
+			  <li>Bodor fiber laser for tight tolerances and minimal finishing</li>
+			  <li>Skilled operators and automated nesting for material efficiency</li>	
+			  <li>In-house quality control for consistent results</li>
+			  <li>Flexible order sizes and short lead times</li>
+			  <li>Seamless integration with other production steps</li>
+			</ul>
+		</div>
+	  </div>
+	</div>
+</section>
+
+
+<section class="about">
+  <div class="container">
+    <h3>Need a Quote or Consultation?</h3>
+    <p class="highlight-quote">Let’s discuss your project and find the best solution together.</p>
+    <a href="contact.html" class="btn">Contact Us →</a>
+  </div>
+</section>
+
+<section class="service-nav">
+  <div class="container">
+    <div class="service-nav-grid">
+	  <a href="services.html" class="service-nav-box">
+		<span class="nav-label">Back to Overview</span>
+		<strong>All Services</strong>
+	  </a>
+      <a href="bend.html" class="service-nav-box">
+        <span class="nav-label">Next →</span>
+        <strong>Bending</strong>
+      </a>
+    </div>
+  </div>
+</section>
+
 
   <!-- FOOTER -->
 <div id="footer-placeholder"></div>
+<script defer src="../main.js"></script>
 </body>
 </html>

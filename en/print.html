@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Silk Screen Printing | Rentron Electronics SA</title>
+  <title>Silk Screen Printing | Rentron SA</title>
   <link rel="stylesheet" href="../style.css" />
-  <script src="../main.js" defer></script>
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <div class="top-banner">
@@ -16,54 +16,7 @@
     </div>
   </div>
 
-	<header>
-	  <div class="container header-content">
-		<div class="logo">
-		  <a href="index.html">
-			<img src="../images/logo-rentron.png" alt="Rentron Logo" />
-		  </a>
-		</div>
-
-		<div class="header-tools">
-			<div class="hamburger" onclick="toggleMenu()">
-			  <span></span>
-			  <span></span>
-			  <span></span>
-			</div>
-			<div class="nav-container">
-				<nav>
-				  <ul>
-					  <li><a href="index.html">Home</a></li>
-					  <li><a href="about.html">About Us</a></li>
-					  <li class="dropdown">
-						  <a href="services.html" class="dropdown-toggle">Services <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="cut.html">Sheet Metal Cutting</a></li>
-							<li><a href="bend.html">Sheet Metal Bending</a></li>
-							<li><a href="weld.html">Welding</a></li>
-							<li><a href="print.html">Silk Screen Printing</a></li>
-							<li><a href="coating.html">Powder Coating</a></li>
-							<li><a href="assy.html">Assembly</a></li>
-						  </ul>
-					  </li>					  
-					  <li class="dropdown">
-						  <a href="javascript:void(0)" class="dropdown-toggle">Racks & Accessories <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="racks.html">Racks</a></li>
-							<li><a href="accessories.html">Accessories</a></li>
-						  </ul>
-					  </li>
-					  <li><a href="special.html">Special Structures</a></li>
-					  <li><a href="contact.html">Contact</a></li>
-				  </ul>
-				</nav>
-			</div>
-			<div class="lang-switcher">
-				<a href="../el/index.html" lang="el">GR</a> | <a href="../en/index.html" lang="en">EN</a>
-			</div>
-		</div>
-	  </div>
-	</header>
+<header id="main-header"></header>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -86,21 +39,79 @@
       <p>
         We collaborate with your design files or offer in-house design assistance for layout and positioning.
       </p>
+	  <div class="centered-list-wrapper">
+		  <ul class="page-content centered-ul">
+			<li>Compatible with powder-coated, anodized, or raw metal surfaces</li>
+			<li>Multi-color printing in high contrast inks</li>
+			<li>Logos, part numbers, safety icons, and interface graphics</li>
+			<li>Durable UV-resistant inks</li>
+			<li>Custom positioning based on your DXF or PDF layout</li>
+		  </ul>
+	  </div>
     </div>
   </section>
 
-  <!-- Optional Image -->
-  <section class="products">
+   <!-- APPLICATIONS & PROCESS USE-CASES -->
+  <section class="product-section">
     <div class="container">
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="../images/printing.jpg" alt="Silk Screen Sample" />
-          <h4>Sample Work</h4>
-          <p>Clear, precise markings on powder-coated sheet metal.</p>
+
+      <div class="product-feature">
+        <img src="../images/printing.jpg" alt="printing" class="product-img" />
+        <div class="product-description">
+		  <h2>Applications</h2>
+			<ul class="page-content tick-list">
+			  <li>IT rack components with front-panel branding</li>
+			  <li>Control panels with functional labels and symbols</li>
+			  <li>Warning and instruction markings for enclosures</li>
+			  <li>Short-run production and prototyping</li>
+			  <li>Multi-step jobs: cut → bend → paint → print</li>
+			</ul>
         </div>
       </div>
+
+      <div class="product-feature reverse">
+        <img src="../images/printing.jpg" alt="printing" class="product-img" />
+        <div class="product-description">
+		  <h2>Why Choose Rentron</h2>
+			<ul class="page-content tick-list">
+			  <li>Screen printing after powder coating, no outsourcing</li>
+			  <li>Fast integration with other manufacturing stages</li>
+			  <li>Precise positioning for repeat jobs and templates</li>
+			  <li>Colorfast and smudge-resistant finish</li>
+			  <li>In-house design adaptation if needed</li>
+			</ul>
+        </div>
+      </div>
+
     </div>
   </section>
+
+  <!-- CTA -->
+  <section class="about">
+    <div class="container">
+      <h3>Need a Quote or Consultation?</h3>
+      <p class="highlight-quote">Send us your drawings or ask about weld process selection for your part.</p>
+      <a href="contact.html" class="btn">Contact Us →</a>
+    </div>
+  </section>
+
+  <!-- SERVICE NAV -->
+	<section class="service-nav">
+	  <div class="container">
+		<div class="service-nav-grid">
+		  <a href="coating.html" class="service-nav-box">
+			<span class="nav-label">← Previous</span>
+			<strong>Powder Coating</strong>
+		  </a>
+		  <a href="assy.html" class="service-nav-box">
+			<span class="nav-label">Next →</span>
+			<strong>Assembly</strong>
+		  </a>
+		</div>
+	  </div>
+	</section>
+	
 <div id="footer-placeholder"></div>
+<script src="../main.js" defer></script>
 </body>
 </html>

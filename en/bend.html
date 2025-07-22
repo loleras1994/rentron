@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sheet Metal Bending | Rentron</title>
+  <title>Sheet Metal Bending | Rentron SA</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-  <script defer src="../main.js"></script>
 </head>
 <body>
 	<div class="top-banner">
@@ -17,54 +16,7 @@
 		</div>	
 	</div>
 
-	<header>
-	  <div class="container header-content">
-		<div class="logo">
-		  <a href="index.html">
-			<img src="../images/logo-rentron.png" alt="Rentron Logo" />
-		  </a>
-		</div>
-
-		<div class="header-tools">
-			<div class="hamburger" onclick="toggleMenu()">
-			  <span></span>
-			  <span></span>
-			  <span></span>
-			</div>
-			<div class="nav-container">
-				<nav>
-				  <ul>
-					  <li><a href="index.html">Home</a></li>
-					  <li><a href="about.html">About Us</a></li>
-					  <li class="dropdown">
-						  <a href="services.html" class="dropdown-toggle">Services <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="cut.html">Sheet Metal Cutting</a></li>
-							<li><a href="bend.html">Sheet Metal Bending</a></li>
-							<li><a href="weld.html">Welding</a></li>
-							<li><a href="print.html">Silk Screen Printing</a></li>
-							<li><a href="coating.html">Powder Coating</a></li>
-							<li><a href="assy.html">Assembly</a></li>
-						  </ul>
-					  </li>					  
-					  <li class="dropdown">
-						  <a href="javascript:void(0)" class="dropdown-toggle">Racks & Accessories <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="racks.html">Racks</a></li>
-							<li><a href="accessories.html">Accessories</a></li>
-						  </ul>
-					  </li>
-					  <li><a href="special.html">Special Structures</a></li>
-					  <li><a href="contact.html">Contact</a></li>
-				  </ul>
-				</nav>
-			</div>
-			<div class="lang-switcher">
-				<a href="../el/index.html" lang="el">GR</a> | <a href="../en/index.html" lang="en">EN</a>
-			</div>
-		</div>
-	  </div>
-	</header>
+<header id="main-header"></header>
 
   <!-- HERO SECTION -->
   <section class="hero">
@@ -74,28 +26,82 @@
     </div>
   </section>
 
+
   <!-- SERVICE DETAILS -->
   <section class="about">
     <div class="container">
-      <h3>Precision CNC Bending</h3>
-      <p>Our CNC press brakes offer precision bending with minimal tolerances for various metal thicknesses and geometries. Our technicians ensure every angle is accurate and consistent.</p>
-
-      <ul style="text-align: left; max-width: 800px; margin: 30px auto;">
-        <li>⦿ Maximum bending length: up to 3 meters</li>
-        <li>⦿ Material thickness: up to 8mm (steel)</li>
-        <li>⦿ CNC-controlled multi-axis press brakes</li>
-        <li>⦿ Consistent repeatability for mass production</li>
-        <li>⦿ Bending of complex parts and enclosures</li>
-      </ul>
-
-      <p style="margin-top: 20px;">Whether you need prototypes or production runs, our bending service is ready to support your projects with speed and precision.</p>
-      <div class="about-card">
-		<a href="about.html">Contact Us</a>
-	  </div>
-    </div>
+      <h3>CNC Bending with Multi-Axis Press Brakes</h3>
+      <p>Rentron SA offers advanced CNC bending services using four Amada multi-axis press brakes designed for precise metal forming. We can bend a variety of sheet metal components — from simple flanges to complex enclosure shapes — with high accuracy and minimal deformation. Our experienced operators ensure consistent quality across all production batches.</p>
+		<div class="centered-list-wrapper">
+			<ul class="page-content centered-ul">
+				<li>Bending length up to 3000 mm</li>
+				<li>Material thickness: up to 8 mm (steel)</li>
+				<li>Four Amada CNC press brakes with real-time angle control</li>
+				<li>High repeatability and bending angle accuracy ±0.3°</li>
+				<li>Compatible with pre-cut laser or punched parts</li>
+			</ul>
+		</div>
+	</div>
   </section>
+
+<section class="product-section">
+	<div class="container">
+	  <div class="product-feature">
+		<img src="../images/bending.jpg" alt="Press Brake" class="product-img" />
+		<div class="product-description">
+		  <h2>Applications</h2>
+			<ul class="page-content tick-list">
+				<li>Forming U, Z, L and complex folded geometries</li>
+				<li>Creating box enclosures, covers, and trays from flat blanks</li>
+				<li>High-precision folds on mounting flanges and stiffeners</li>
+				<li>Multi-step bends for server rack doors and panels</li>
+				<li>Bending stainless steel, aluminum, and pre-coated sheets</li>
+			</ul>
+		</div>
+	  </div>
+
+	  <div class="product-feature reverse">
+		<img src="../images/bending2.jpg" alt="Using Press Brake" class="product-img" />
+		<div class="product-description">
+		  <h2>Why Choose Rentron</h2>
+			<ul class="page-content tick-list">
+				<li>Four modern Amada CNC brakes with automated backgauges</li>
+				<li>Experienced metal fabricators and real-time quality control</li>
+				<li>Consistent results even on large batch orders</li>
+				<li>Full integration with in-house cutting and welding stages</li>
+				<li>Minimal setup times and fast production switching</li>
+			</ul>
+		</div>
+	  </div>
+	</div>
+</section>
+
+
+<section class="about">
+  <div class="container">
+    <h3>Need a Quote or Consultation?</h3>
+    <p class="highlight-quote">Let’s discuss your project and find the best solution together.</p>
+    <a href="contact.html" class="btn">Contact Us →</a>
+  </div>
+</section>
+
+<section class="service-nav">
+  <div class="container">
+    <div class="service-nav-grid">
+      <a href="cut.html" class="service-nav-box">
+        <span class="nav-label">← Previous</span>
+        <strong>Sheet Metal Cutting</strong>
+      </a>
+      <a href="weld.html" class="service-nav-box">
+        <span class="nav-label">Next →</span>
+        <strong>Welding</strong>
+      </a>
+    </div>
+  </div>
+</section>
 
   <!-- FOOTER -->
 <div id="footer-placeholder"></div>
+<script defer src="../main.js"></script>
 </body>
 </html>

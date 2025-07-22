@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assembly | Rentron Electronics SA</title>
+  <title>Assembly | Rentron SA</title>
   <link rel="stylesheet" href="../style.css" />
-  <script src="../main.js" defer></script>
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <div class="top-banner">
@@ -16,95 +16,97 @@
     </div>
   </div>
 
-	<header>
-	  <div class="container header-content">
-		<div class="logo">
-		  <a href="index.html">
-			<img src="../images/logo-rentron.png" alt="Rentron Logo" />
-		  </a>
-		</div>
-
-		<div class="header-tools">
-			<div class="hamburger" onclick="toggleMenu()">
-			  <span></span>
-			  <span></span>
-			  <span></span>
-			</div>
-			<div class="nav-container">
-				<nav>
-				  <ul>
-					  <li><a href="index.html">Home</a></li>
-					  <li><a href="about.html">About Us</a></li>
-					  <li class="dropdown">
-						  <a href="services.html" class="dropdown-toggle">Services <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="cut.html">Sheet Metal Cutting</a></li>
-							<li><a href="bend.html">Sheet Metal Bending</a></li>
-							<li><a href="weld.html">Welding</a></li>
-							<li><a href="print.html">Silk Screen Printing</a></li>
-							<li><a href="coating.html">Powder Coating</a></li>
-							<li><a href="assy.html">Assembly</a></li>
-						  </ul>
-					  </li>					  
-					  <li class="dropdown">
-						  <a href="javascript:void(0)" class="dropdown-toggle">Racks & Accessories <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="racks.html">Racks</a></li>
-							<li><a href="accessories.html">Accessories</a></li>
-						  </ul>
-					  </li>
-					  <li><a href="special.html">Special Structures</a></li>
-					  <li><a href="contact.html">Contact</a></li>
-				  </ul>
-				</nav>
-			</div>
-			<div class="lang-switcher">
-				<a href="../el/index.html" lang="el">GR</a> | <a href="../en/index.html" lang="en">EN</a>
-			</div>
-		</div>
-	  </div>
-	</header>
+<header id="main-header"></header>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <h1>Assembly</h1>
-      <p>Complete product integration services for turnkey solutions.</p>
+      <p>Complete product integration — from metal parts to ready-to-ship assemblies.</p>
     </div>
   </section>
 
   <!-- Service Description -->
   <section class="about">
     <div class="container">
-      <h3>Mechanical & Electrical Assembly</h3>
-      <p>
-        Rentron S.A. provides professional assembly services for cabinets, enclosures, and complex electromechanical systems. We handle full product integration, including:
-      </p>
-      <ul style="text-align: left; max-width: 800px; margin: 0 auto;">
-        <li>Mechanical assembly (fasteners, hinges, accessories)</li>
-        <li>Mounting of components and subassemblies</li>
-        <li>Wiring and cable routing (upon request)</li>
-        <li>Labeling, packaging, and delivery-ready preparation</li>
-      </ul>
-      <p>
-        This ensures faster lead times for our customers and end-to-end control of product quality.
-      </p>
+      <h3>Mechanical & Electromechanical Assembly</h3>
+      <p>Rentron SA offers final assembly services for metal enclosures, racks, and technical products. 
+		We integrate mechanical and electrical components — from fasteners and hinges to submodules, wiring and labeling — 
+		so your product is fully tested and ready for deployment.</p>
+	  <p>Our team can follow BOMs, wiring diagrams, or custom build instructions to deliver turnkey results.</p>
+		<div class="centered-list-wrapper">
+		  <ul class="page-content centered-ul">
+			<li>Mechanical assembly with fasteners, studs, gaskets, and accessories</li>
+			<li>Mounting of PCBs, DIN rails, fans, or control devices</li>
+			<li>Basic wiring and cable routing upon request</li>
+			<li>Labeling, serial tagging, and quality inspection</li>
+			<li>Packaging and dispatch-ready preparation</li>
+		  </ul>
+		</div>
     </div>
   </section>
 
-  <!-- Optional Image -->
-  <section class="products">
+  <!-- APPLICATIONS & PROCESS USE-CASES -->
+  <section class="product-section">
     <div class="container">
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="../images/assembly.jpg" alt="Assembly" />
-          <h4>Integrated Solutions</h4>
-          <p>We deliver fully assembled and tested solutions ready for deployment.</p>
+
+      <div class="product-feature">
+        <img src="../images/assy1.jpg" alt="Assembly" class="product-img" />
+        <div class="product-description">
+		  <h2>Applications</h2>
+			<ul class="page-content tick-list">
+			  <li>Racks and IT systems with mounted accessories</li>
+			  <li>Custom industrial boxes and control panels</li>
+			  <li>OEM product subassemblies</li>
+			  <li>Pre-wired enclosures with cable management</li>
+			  <li>Final-step integration before shipping</li>
+			</ul>
         </div>
       </div>
+
+      <div class="product-feature reverse">
+        <img src="../images/assy2.jpg" alt="Assembly" class="product-img" />
+        <div class="product-description">
+		  <h2>Why Choose Rentron</h2>
+			<ul class="page-content tick-list">
+			  <li>All processes under one roof — from metalwork to packaging</li>
+			  <li>Experienced assembly technicians with attention to detail</li>
+			  <li>Reduced logistics and shorter delivery lead times</li>
+			  <li>Flexibility on volumes and special customer instructions</li>
+			  <li>One-stop solution for your entire hardware production</li>
+			</ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
+  <!-- CTA -->
+  <section class="about">
+    <div class="container">
+      <h3>Need a Quote or Consultation?</h3>
+      <p class="highlight-quote">Send us your drawings or ask about weld process selection for your part.</p>
+      <a href="contact.html" class="btn">Contact Us →</a>
+    </div>
+  </section>
+
+  <!-- SERVICE NAV -->
+	<section class="service-nav">
+	  <div class="container">
+		<div class="service-nav-grid">
+		  <a href="coating.html" class="service-nav-box">
+			<span class="nav-label">← Previous</span>
+			<strong>Powder Coating</strong>
+		  </a>
+		  <a href="services.html" class="service-nav-box">
+			<span class="nav-label">Back to Overview</span>
+			<strong>All Services</strong>
+		  </a>
+		</div>
+	  </div>
+	</section>
+
 <div id="footer-placeholder"></div>
+<script src="../main.js" defer></script>
 </body>
 </html>

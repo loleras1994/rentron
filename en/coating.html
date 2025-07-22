@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Powder Coating | Rentron Electronics SA</title>
+  <title>Powder Coating | Rentron SA</title>
   <link rel="stylesheet" href="../style.css" />
-  <script src="../main.js" defer></script>
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <div class="top-banner">
@@ -16,54 +16,7 @@
     </div>
   </div>
 
-	<header>
-	  <div class="container header-content">
-		<div class="logo">
-		  <a href="index.html">
-			<img src="../images/logo-rentron.png" alt="Rentron Logo" />
-		  </a>
-		</div>
-
-		<div class="header-tools">
-			<div class="hamburger" onclick="toggleMenu()">
-			  <span></span>
-			  <span></span>
-			  <span></span>
-			</div>
-			<div class="nav-container">
-				<nav>
-				  <ul>
-					  <li><a href="index.html">Home</a></li>
-					  <li><a href="about.html">About Us</a></li>
-					  <li class="dropdown">
-						  <a href="services.html" class="dropdown-toggle">Services <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="cut.html">Sheet Metal Cutting</a></li>
-							<li><a href="bend.html">Sheet Metal Bending</a></li>
-							<li><a href="weld.html">Welding</a></li>
-							<li><a href="print.html">Silk Screen Printing</a></li>
-							<li><a href="coating.html">Powder Coating</a></li>
-							<li><a href="assy,html">Assembly</a></li>
-						  </ul>
-					  </li>					  
-					  <li class="dropdown">
-						  <a href="javascript:void(0)" class="dropdown-toggle">Racks & Accessories <span class="arrow">▼</span></a>
-						  <ul class="dropdown-menu">
-							<li><a href="racks.html">Racks</a></li>
-							<li><a href="accessories.html">Accessories</a></li>
-						  </ul>
-					  </li>
-					  <li><a href="special.html">Special Structures</a></li>
-					  <li><a href="contact.html">Contact</a></li>
-				  </ul>
-				</nav>
-			</div>
-			<div class="lang-switcher">
-				<a href="../el/index.html" lang="el">GR</a> | <a href="../en/index.html" lang="en">EN</a>
-			</div>
-		</div>
-	  </div>
-	</header>
+<header id="main-header"></header>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -76,32 +29,87 @@
   <!-- Service Description -->
   <section class="about">
     <div class="container">
-      <h3>High-Quality Powder Coating</h3>
-      <p>
-        Rentron S.A. offers premium powder coating services for maximum durability and aesthetics. We apply electrostatic powder to metal surfaces and bake them in controlled ovens, resulting in uniform, long-lasting finishes.
-      </p>
-      <p>
-        Our coating line supports a variety of colors, textures (matte, gloss, fine structure), and RAL codes to meet your specific project needs.
-      </p>
-      <p>
-        Applications include: IT enclosures, racks, industrial panels, and custom cabinets. We guarantee corrosion resistance, impact strength, and a professional look.
-      </p>
+		<h3>Industrial Powder Coating for Metal Parts</h3>
+		<p>Our powder coating line delivers consistent, durable finishes with excellent adhesion, corrosion resistance, and visual appeal. 
+		Electrostatic application ensures even coverage, followed by baking in a controlled curing oven for optimal durability.
+		</p>
+		<p>We offer full in-house finishing — from surface prep to coating — for steel, stainless steel, and aluminum parts.
+		Choose from a wide range of RAL colors and textures (matte, fine structure, semi-gloss, gloss).
+		</p>
+		<div class="centered-list-wrapper">
+		  <ul class="page-content centered-ul">
+			<li>Max part size: 2000 x 1500 x 600 mm</li>
+			<li>Support for steel, stainless steel, and aluminum</li>
+			<li>RAL color library with matte, gloss, and texture options</li>
+			<li>Anti-corrosion & impact-resistant finish</li>
+			<li>Batch and one-off production accepted</li>
+		  </ul>
+		</div>
     </div>
   </section>
 
-  <!-- Optional Image -->
-  <section class="products">
+   <!-- APPLICATIONS & PROCESS USE-CASES -->
+  <section class="product-section">
     <div class="container">
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="../images/coating.jpg" alt="Powder Coating Sample" />
-          <h4>Color Options</h4>
-          <p>Wide variety of RAL colors and textures available on request.</p>
+
+      <div class="product-feature">
+        <img src="../images/coating.jpg" alt="Powder Coating" class="product-img" />
+        <div class="product-description">
+		<h2>Applications</h2>
+			<ul class="page-content tick-list">
+			  <li>Coated IT rack parts and enclosures</li>
+			  <li>Industrial and electrical cabinets</li>
+			  <li>Laser-cut brackets, flanges, or covers</li>
+			  <li>Parts with pre-assembled PEM inserts</li>
+			  <li>Final finish before packaging and shipping</li>
+			</ul>
         </div>
       </div>
+
+      <div class="product-feature reverse">
+        <img src="../images/coating2.jpg" alt="Powder Coating" class="product-img" />
+        <div class="product-description">
+          <h2>Why Choose Rentron</h2>
+			<ul class="page-content tick-list">
+			  <li>In-house powder coating after cutting, bending and welding</li>
+			  <li>Consistent results with quality control on every batch</li>
+			  <li>Fast color changeover and flexible order sizes</li>
+			  <li>Skilled team for surface prep & coating uniformity</li>
+			  <li>Packaging-ready parts directly from coating line</li>
+			</ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
+  <!-- CTA -->
+  <section class="about">
+    <div class="container">
+      <h3>Need a Quote or Consultation?</h3>
+      <p class="highlight-quote">Send us your drawings or ask about weld process selection for your part.</p>
+      <a href="contact.html" class="btn">Contact Us →</a>
+    </div>
+  </section>
+
+  <!-- SERVICE NAV -->
+	<section class="service-nav">
+	  <div class="container">
+		<div class="service-nav-grid">
+		  <a href="weld.html" class="service-nav-box">
+			<span class="nav-label">← Previous</span>
+			<strong>Welding</strong>
+		  </a>
+		  <a href="print.html" class="service-nav-box">
+			<span class="nav-label">Next →</span>
+			<strong>Silk Screen Printing</strong>
+		  </a>
+		</div>
+	  </div>
+	</section>
+
+  
 <div id="footer-placeholder"></div>
+<script src="../main.js" defer></script>
 </body>
 </html>
