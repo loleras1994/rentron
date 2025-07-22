@@ -313,6 +313,10 @@ nav a:hover {
   font-size: 18px;
 }
 
+.product-card h2 {
+  font-size: 28px;
+}
+
 .product-card p {
   margin: 0 0 20px;
   min-height: 48px; /* Adjust as needed for equal text height */
@@ -424,7 +428,7 @@ nav a:hover {
 }
 
 .about-image-band {
-  background: url('/rentron/images/factory.jpg') no-repeat center center;
+  background: url('/images/factory.jpg') no-repeat center center;
   background-size: cover;
   height: 280px;
   margin: 40px 0;
@@ -834,6 +838,7 @@ html {
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 5px;
+ /* font-weight: bold;*/
 }
 
 .btn:hover {
@@ -1158,6 +1163,8 @@ html {
   align-items: center;
   margin-bottom: 60px;
   gap: 30px;
+  justify-content: center;
+  text-align: center;
 }
 
 .product-feature.reverse {
@@ -1209,4 +1216,76 @@ html {
 
 .services-overview {
   background: white; /*#e0ecf5;*/
+}
+
+.page-content.tick-list {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.page-content.tick-list li::before {
+  content: "✓ ";
+  color: #00aaff;
+  margin-right: 5px;
+}
+
+.centered-list-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.page-content.centered-ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.page-content.centered-ul li::before {
+  content: "⦿";
+  color: #009fe3;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.service-nav {
+  background-color: #f7f7f7;
+  padding: 40px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.service-nav-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.service-nav-box {
+  flex: 1;
+  min-width: 220px;
+  background-color: #f2f9fc;
+  border: 1px solid #009fe3;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.service-nav-box:hover {
+  background-color: #e6f5fb;
+}
+
+.service-nav-box strong {
+  display: block;
+  font-size: 18px;
+  color: #009fe3;
+  margin-top: 5px;
+}
+
+.service-nav-box .nav-label {
+  font-size: 14px;
+  color: #444;
 }
