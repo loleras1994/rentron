@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         header.innerHTML = data;
 
         initHeaderInteractions(); // Attach listeners after injection
+		setupLangSwitcher(); 
       }
     });
 
@@ -105,4 +106,26 @@ function initHeaderInteractions() {
     }
   });
 }
+
+function setupLangSwitcher() {
+  const langSwitcher = document.getElementById("lang-switcher");
+  if (!langSwitcher) return;
+
+  const currentPath = window.location.pathname;
+  const isGreek = currentPath.includes("/el/");
+  const isEnglish = currentPath.includes("/en/");
+
+  let targetFile = currentPath.split("/").pop();
+  if (!targetFile || targetFile === "") targetFile = "index.html";
+
+  let grPath = "../el/" + targetFile;
+  let enPath = "../en/" + targetFile;
+
+  langSwitcher.innerHTML = `
+    <a href="${grPath}" lang="el"${isGreek ? ' class="active"' : ''}>GR</a> | 
+    <a href="${enPath}" lang="en"${isEnglish ? ' class="active"' : ''}>EN</a>
+  `;
+}
+
+
 
