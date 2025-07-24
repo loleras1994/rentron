@@ -1,53 +1,72 @@
 <!-- header.html -->
-  <div class="container header-content">
-	<div class="logo">
-	  <a href="index.html">
-		<img src="../images/logo-rentron.png" alt="Rentron Logo" />
-	  </a>
-	</div>
-
-	<div class="header-tools">
-		<div class="hamburger" onclick="toggleMenu()">
-		  <span></span>
-		  <span></span>
-		  <span></span>
-		</div>
-		<div class="nav-container">
-			<nav>
-			  <ul>
-				  <li><a href="index.html">Home</a></li>
-				  <li><a href="about.html">About Us</a></li>
-				  <li class="dropdown">
-					  <a href="services.html">Services <span class="arrow">▼</span></a>
-					  <ul class="dropdown-menu">
-						<li><a href="cut.html">Sheet Metal Cutting</a></li>
-						<li><a href="bend.html">Sheet Metal Bending</a></li>
-						<li><a href="weld.html">Welding</a></li>				
-						<li><a href="coating.html">Powder Coating</a></li>
-						<li><a href="print.html">Silk Screen Printing</a></li>
-						<li><a href="assy.html">Assembly</a></li>
-					  </ul>
-				  </li>					  
-				  <li class="dropdown">
-					  <a href="#" class="dropdown-toggle" onclick="return false;">Racks & Accessories <span class="arrow">▼</span></a>
-					  <ul class="dropdown-menu">
-						  <li class="dropdown">
-							  <a href="racks.html">Racks <span class="arrow">►</span></a>
-								  <ul class="dropdown-submenu">
-									<li><a href="floor.html">Floor Standing Racks</a></li>
-									<li><a href="wall.html">Wall Mounting Racks</a></li>
-								  </ul>	
-						  </li>
-						  <li><a href="accessories.html">Accessories</a></li>
-					  </ul>
-				  </li>
-				  <li><a href="special.html">Special Structures</a></li>
-				  <li><a href="contact.html">Contact</a></li>
-			  </ul>
-			</nav>
-		</div>
-		<div class="lang-switcher" id="lang-switcher"></div>
-	</div>
+<div class="container header-content">
+  <div class="logo">
+    <a href="index.html">
+      <img src="../images/logo-rentron.png" alt="Rentron Logo" />
+    </a>
   </div>
 
+  <div class="header-tools">
+    <!-- Desktop Navigation -->
+    <div class="desktop-nav">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li class="dropdown">
+            <a href="services.html">Services <span class="arrow">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="cut.html">Sheet Metal Cutting</a></li>
+              <li><a href="bend.html">Sheet Metal Bending</a></li>
+              <li><a href="weld.html">Welding</a></li>
+              <li><a href="coating.html">Powder Coating</a></li>
+              <li><a href="print.html">Silk Screen Printing</a></li>
+              <li><a href="assy.html">Assembly</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" onclick="return false;">Racks & Accessories <span class="arrow">▼</span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown">
+                <a href="racks.html">Racks <span class="arrow">►</span></a>
+                <ul class="dropdown-submenu">
+                  <li><a href="floor.html">Floor Standing Racks</a></li>
+                  <li><a href="wall.html">Wall Mounting Racks</a></li>
+                </ul>
+              </li>
+              <li><a href="accessories.html">Accessories</a></li>
+            </ul>
+          </li>
+          <li><a href="special.html">Special Structures</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switcher" id="lang-switcher"></div>
+    </div>
 
+    <!-- Mobile Navigation (hamburger + lang + menu) -->
+    <div class="mobile-nav-container">
+      <div class="right-tools">
+		<div class="lang-switcher" id="lang-switcher-mobile"></div>
+        <div class="hamburger" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-menu">
+	  <button class="mobile-nav-close" id="close-mobile-menu">×</button>
+
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="racks.html">Racks & Accessories</a></li>
+          <li><a href="special.html">Special Structures</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

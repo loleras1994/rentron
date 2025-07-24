@@ -11,7 +11,7 @@
 <body>
 <div class="top-banner">
 	<div class="container">
-		<a href="../files/espa3.pdf" target="_blank">
+		<a href="../files/espa3.pdf" target="_blank" rel="noopener">
 			<img src="../images/espa3.jpg" alt="ΕΣΠΑ 3" class="banner-image" />
 		</a>
 	</div>	
@@ -131,7 +131,7 @@
 
     if (match) {
       codeEl.textContent = match.CODE;
-      datasheetEl.innerHTML = `<a href="../files/${match.CODE}.pdf" target="_blank">Download PDF</a>`;
+      datasheetEl.innerHTML = `<a href="../files/${match.CODE}.pdf" target="_blank" rel="noopener">Download PDF</a>`;
     } else {
       codeEl.textContent = "No code available. Ask for a custom quote.";
       datasheetEl.textContent = "—";
