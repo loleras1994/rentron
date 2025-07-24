@@ -2,17 +2,13 @@
 <div class="container header-content">
   <div class="logo">
     <a href="index.html">
-      <img src="../images/logo-rentron.png" alt="Λογότυπο Rentron" />
+      <img src="../images/logo-rentron.png" alt="Rentron Logo" />
     </a>
   </div>
 
   <div class="header-tools">
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="nav-container">
+    <!-- Desktop Navigation -->
+    <div class="desktop-nav">
       <nav>
         <ul>
           <li><a href="index.html">Αρχική</a></li>
@@ -27,7 +23,7 @@
               <li><a href="print.html">Μεταξοτυπία</a></li>
               <li><a href="assy.html">Συναρμολόγηση</a></li>
             </ul>
-          </li>					  
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" onclick="return false;">Racks & Παρελκόμενα <span class="arrow">▼</span></a>
             <ul class="dropdown-menu">
@@ -36,7 +32,7 @@
                 <ul class="dropdown-submenu">
                   <li><a href="floor.html">Επιδαπέδια Racks</a></li>
                   <li><a href="wall.html">Επιτοίχια Racks</a></li>
-                </ul>	
+                </ul>
               </li>
               <li><a href="accessories.html">Παρελκόμενα</a></li>
             </ul>
@@ -45,8 +41,33 @@
           <li><a href="contact.html">Επικοινωνία</a></li>
         </ul>
       </nav>
+      <div class="lang-switcher" id="lang-switcher"></div>
     </div>
-    <div class="lang-switcher" id="lang-switcher"></div>
+
+    <!-- Mobile Navigation (hamburger + lang + menu) -->
+    <div class="mobile-nav-container">
+      <div class="right-tools">
+		<div class="lang-switcher" id="lang-switcher-mobile"></div>
+        <div class="hamburger" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-menu">
+	  <button class="mobile-nav-close" id="close-mobile-menu">×</button>
+
+        <ul>
+          <li><a href="index.html">Αρχική</a></li>
+          <li><a href="about.html">Η Εταιρεία</a></li>
+          <li><a href="services.html">Υπηρεσίες</a></li>
+          <li><a href="racks.html">Racks & Παρελκόμενα</a></li>
+          <li><a href="special.html">Ειδικές Κατασκευές</a></li>
+          <li><a href="contact.html">Επικοινωνία</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </div>
 

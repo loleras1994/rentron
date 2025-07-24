@@ -7,11 +7,12 @@
 <title>Επικοινωνία | Rentron ΑΕΒΕ</title>
 <link href="../style.css" rel="stylesheet"/>
 <link href="../favicon.ico" rel="icon" type="image/x-icon"/>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 <div class="top-banner">
 <div class="container">
-<a href="../files/espa3.pdf" target="_blank">
+<a href="../files/espa3.pdf" target="_blank" rel="noopener">
 <img alt="ΕΣΠΑ 3" class="banner-image" src="../images/espa3.jpg"/>
 </a>
 </div>
@@ -24,23 +25,30 @@
 <p>Θα χαρούμε να σας ακούσουμε. Επικοινωνήστε μαζί μας!</p>
 </div>
 </section>
-<!-- Contact Form -->
-<section class="contact">
-<div class="container">
-<h3 style="text-align: center;">Στείλτε μας μήνυμα</h3>
-<form action="../send.php" method="POST">
-<label for="name">Ονοματεπώνυμο</label>
-<input id="name" name="name" required="" type="text"/>
-<label for="company">Εταιρεία</label>
-<input id="company" name="company" type="text"/>
-<label for="email">Email</label>
-<input id="email" name="email" required="" type="email"/>
-<label for="message">Μήνυμα</label>
-<textarea id="message" name="message" required=""></textarea>
-<button type="submit">Αποστολή</button>
-</form>
-</div>
-</section>
+  <!-- Contact Form -->
+  <section class="contact">
+    <div class="container">
+      <h3 style="text-align: center;">Στείλτε μας μήνυμα</h3>
+      <form action="../send.php" method="POST">
+        <label for="name">Ονοματεπώνυμο</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="company">Εταιρεία</label>
+        <input type="text" id="company" name="company" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Μήνυμα</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+        <br>
+
+        <button type="submit">Αποστολή</button>
+      </form>
+    </div>
+  </section>
 <!-- Map & Locations -->
 <section class="contact">
 <div class="container">
@@ -49,14 +57,14 @@
 <div style="flex: 1 1 400px; max-width: 600px;">
 <h5 style="margin-bottom: 10px;">Γραφεία - Παλαιό Φάληρο</h5>
 <div style="width: 100%; height: 300px; border-radius: 8px; overflow: hidden;">
-<iframe allowfullscreen="" height="100%" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.295604829224!2d23.6927781!3d37.9321826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bc3d5ccdfad3%3A0xfdad202b3629edfb!2sRentron%20S.A.!5e0!3m2!1sel!2sgr!4v1718980000000!5m2!1sel!2sgr" style="border:0;" width="100%"></iframe>
+<iframe title="Γραφεία Rentron - Παλαιό Φάληρο" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.295604829224!2d23.6927781!3d37.9321826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bc3d5ccdfad3%3A0xfdad202b3629edfb!2sRentron%20S.A.!5e0!3m2!1sel!2sgr!4v1718980000000!5m2!1sel!2sgr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <p style="margin-top: 10px;">Ατλάντος 44, Παλαιό Φάληρο 175 61<br>Τηλ.: +30 210 9820564<br>Email: info@rentron.gr</p>
 </div>
 <div style="flex: 1 1 400px; max-width: 600px;">
 <h5 style="margin-bottom: 10px;">Εργοστάσιο - Κόρινθος</h5>
 <div style="width: 100%; height: 300px; border-radius: 8px; overflow: hidden;">
-<iframe allowfullscreen="" height="100%" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3130.6248088931733!2d22.973518511407146!3d37.92806527952621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a015c1b578bd17%3A0x62202b08ddd895ca!2sRENTRON%20S.A.%20SHEET%20METAL%20CONSTRUCTIONS!5e0!3m2!1sel!2sgr!4v1718988888888!5m2!1sel!2sgr" style="border:0;" width="100%"></iframe>
+<iframe title="Εργοστάσιο Rentron - Κόρινθος" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3130.6248088931733!2d22.973518511407146!3d37.92806527952621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a015c1b578bd17%3A0x62202b08ddd895ca!2sRENTRON%20S.A.%20SHEET%20METAL%20CONSTRUCTIONS!5e0!3m2!1sel!2sgr!4v1718988888888!5m2!1sel!2sgr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <p style="margin-top: 10px;">Παλαιά ΕΟ Αθηνών Κορίνθου 72th km, Λουτράκι 201 00<br/>Τηλ.: +30 27410 25528<br>Email: ergo@rentron.gr</p>
 </div>
@@ -64,6 +72,6 @@
 </div>
 </section>
 <div id="footer-placeholder"></div>
-<script defer="" src="../main.js"></script>
+<script src="../main.js" defer></script>
 </body>
 </html>
