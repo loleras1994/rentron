@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
   <url>
     <loc>https://www.rentron.gr/el/index.html</loc>
     <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.rentron.gr/en/index.html</loc>
     <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://www.rentron.gr/el/services.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.rentron.gr/en/services.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Individual services (Greek) -->
+  <url><loc>https://www.rentron.gr/el/cut.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/bend.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/weld.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/coating.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/print.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/assy.html</loc></url>
+
+  <!-- Individual services (English) -->
+  <url><loc>https://www.rentron.gr/en/cut.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/bend.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/weld.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/coating.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/print.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/assy.html</loc></url>
+
+  <!-- Accessories pages (el/en) -->
+  <url><loc>https://www.rentron.gr/el/accessories.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/accessories.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/panels.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/panels.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/shelves.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/shelves.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/cable.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/cable.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/ventilation.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/ventilation.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/mounting.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/mounting.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/power.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/power.html</loc></url>
+
+  <!-- Contact / About -->
+  <url><loc>https://www.rentron.gr/el/contact.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/contact.html</loc></url>
+  <url><loc>https://www.rentron.gr/el/about.html</loc></url>
+  <url><loc>https://www.rentron.gr/en/about.html</loc></url>
+
 </urlset>

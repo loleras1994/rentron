@@ -1,28 +1,37 @@
 <?php
-// Ρυθμίσεις
-$to = "alexandris.alex@hotmail.com";  // βάλε εδώ το δικό σου email
-$subject = "Νέο μήνυμα από τη φόρμα επικοινωνίας Rentron.gr";
+// CONFIG
+$recaptcha_secret = "YOUR_SECRET_KEY_HERE";
 
-// Παραλαβή δεδομένων
-$name = htmlspecialchars($_POST["name"]);
-$company = htmlspecialchars($_POST["company"]);
-$email = htmlspecialchars($_POST["email"]);
-$message = htmlspecialchars($_POST["message"]);
+// Sanitize inputs
+$name = htmlspecialchars(strip_tags($_POST['name'] ?? ''));
+$email = filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL);
+$message = htmlspecialchars(strip_tags($_POST['message'] ?? ''));
+$recaptcha_response = $_POST['g-recaptcha-response'] ?? '';
 
-// Δημιουργία σώματος email
-$body = "Ονοματεπώνυμο: $name\n";
-$body .= "Εταιρεία: $company\n";
-$body .= "Email: $email\n\n";
-$body .= "Μήνυμα:\n$message";
+// Validate inputs
+if (!$name || !$email || !$message) {
+  die("Please complete all required fields.");
+}
 
-// Headers
-$headers = "From: $email\r\n";
-$headers .= "Reply-To: $email\r\n";
+// Verify reCAPTCHA
+$verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptcha_secret}&response={$recaptcha_response}");
+$response_data = json_decode($verify);
+if (!$response_data->success) {
+  die("reCAPTCHA verification failed. Please try again.");
+}
 
-// Αποστολή email
+// Prepare email
+$to = "info@rentron.gr";
+$subject = "New Contact Form Submission";
+$headers = "From: " . $email . "\r\n" .
+           "Reply-To: " . $email . "\r\n" .
+           "Content-Type: text/plain; charset=UTF-8";
+$body = "Name: $name\nEmail: $email\nMessage:\n$message";
+
+// Send email
 if (mail($to, $subject, $body, $headers)) {
-    echo "<h2>Το μήνυμά σας στάλθηκε με επιτυχία.</h2>";
+  echo "Message sent successfully!";
 } else {
-    echo "<h2>Σφάλμα κατά την αποστολή. Παρακαλώ δοκιμάστε ξανά.</h2>";
+  echo "Message delivery failed.";
 }
 ?>

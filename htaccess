@@ -1,0 +1,83 @@
+# ----------------------------------------
+# BASIC SECURITY HEADERS
+# ----------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header always set Cross-Origin-Embedder-Policy "require-corp"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+</IfModule>
+
+# ----------------------------------------
+# CACHING: Static assets (images, css, js)
+# ----------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  ExpiresByType image/jpg "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# ----------------------------------------
+# COMPRESSION
+# ----------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
+</IfModule>
+
+# ----------------------------------------
+# REDIRECT TO HTTPS (if not already forced by host)
+# ----------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+# ----------------------------------------
+# DEFAULT INDEX
+# ----------------------------------------
+DirectoryIndex index.html
+
+# ----------------------------------------
+# REMOVE TRAILING SLASH (SEO-friendly URLs)
+# ----------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# ----------------------------------------
+# BLOCK DIRECTORY LISTING
+# ----------------------------------------
+Options -Indexes
+
+# ----------------------------------------
+# CUSTOM ERROR PAGES (Optional)
+# ----------------------------------------
+ErrorDocument 404 /404.html
+
+# =======================
+# SENSITIVE FILES PROTECTION
+# =======================
+<FilesMatch "\.(htaccess|htpasswd|ini|log|conf|env|bak|git)">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# =======================
+# COOKIE SECURITY 
+# =======================
+<IfModule mod_headers.c>
+  Header edit Set-Cookie ^(.*)$ "$1; HttpOnly; Secure; SameSite=Strict"
+</IfModule>

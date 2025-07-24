@@ -43,89 +43,77 @@ document.addEventListener("DOMContentLoaded", function () {
 // Header Interactions
 // ================================================
 function initHeaderInteractions() {
-  const navList = document.querySelector('.header-tools .nav-container nav ul');
-  const hamburger = document.querySelector('.hamburger');
-  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-  const navLinks = document.querySelectorAll('.header-tools nav a');
+  const hamburger = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('close-mobile-menu');
+  const rightTools = document.querySelector('.mobile-nav-container .right-tools');
 
-  // Hamburger toggle
-  if (hamburger && navList) {
-    hamburger.addEventListener('click', () => {
-      navList.classList.toggle('active');
-    });
+  if (!hamburger || !mobileMenu) return;
 
-    // Close menu when clicking a nav link (except dropdown toggles)
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (!link.classList.contains('dropdown-toggle') && navList.classList.contains('active')) {
-          navList.classList.remove('active');
-        }
-      });
-    });
+  // Άνοιγμα μενού
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.add('show');
+    document.body.classList.add('menu-open');
+    if (rightTools) rightTools.style.display = 'none';
+  });
 
-    // Click outside nav to close
-    document.addEventListener('click', (e) => {
-      if (
-        navList.classList.contains('active') &&
-        !navList.contains(e.target) &&
-        !hamburger.contains(e.target)
-      ) {
-        navList.classList.remove('active');
-      }
+  // Κλείσιμο με Χ
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('show');
+      document.body.classList.remove('menu-open');
+      if (rightTools) rightTools.style.display = '';
     });
   }
 
-  // Mobile dropdown toggle
-  dropdownToggles.forEach(toggle => {
-    toggle.addEventListener('click', function (e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const parentDropdown = this.closest('.dropdown');
-
-        // Close all other open dropdowns
-        document.querySelectorAll('.dropdown.open').forEach(drop => {
-          if (drop !== parentDropdown) drop.classList.remove('open');
-        });
-
-        // Toggle current dropdown
-        parentDropdown.classList.toggle('open');
-      }
+  // Κλείσιμο όταν πατηθεί link
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('show');
+      document.body.classList.remove('menu-open');
+      if (rightTools) rightTools.style.display = '';
     });
   });
 
-  // Click outside to close dropdowns (mobile only)
-  document.addEventListener('click', function (e) {
-    if (window.innerWidth <= 768) {
-      const isDropdown = e.target.closest('.dropdown');
-      const isNav = e.target.closest('.nav-container');
-      if (!isDropdown && !isNav) {
-        document.querySelectorAll('.dropdown.open').forEach(drop => {
-          drop.classList.remove('open');
-        });
-      }
+  // Κλείσιμο όταν πατήσεις έξω από το μενού
+  document.addEventListener('click', (e) => {
+    const isClickInsideMenu = mobileMenu.contains(e.target);
+    const isClickOnHamburger = hamburger.contains(e.target);
+    const isClickOnClose = closeBtn && closeBtn.contains(e.target);
+    if (!isClickInsideMenu && !isClickOnHamburger && !isClickOnClose && mobileMenu.classList.contains('show')) {
+      mobileMenu.classList.remove('show');
+      document.body.classList.remove('menu-open');
+      if (rightTools) rightTools.style.display = '';
     }
   });
 }
 
-function setupLangSwitcher() {
-  const langSwitcher = document.getElementById("lang-switcher");
-  if (!langSwitcher) return;
 
+
+
+
+function setupLangSwitcher() {
   const currentPath = window.location.pathname;
   const isGreek = currentPath.includes("/el/");
   const isEnglish = currentPath.includes("/en/");
-
   let targetFile = currentPath.split("/").pop();
   if (!targetFile || targetFile === "") targetFile = "index.html";
 
   let grPath = "../el/" + targetFile;
   let enPath = "../en/" + targetFile;
 
-  langSwitcher.innerHTML = `
+  const langHTML = `
     <a href="${grPath}" lang="el"${isGreek ? ' class="active"' : ''}>GR</a> | 
     <a href="${enPath}" lang="en"${isEnglish ? ' class="active"' : ''}>EN</a>
   `;
+
+  const desktopSwitcher = document.getElementById("lang-switcher");
+  const mobileSwitcher = document.getElementById("lang-switcher-mobile");
+
+  if (desktopSwitcher) desktopSwitcher.innerHTML = langHTML;
+  if (mobileSwitcher) mobileSwitcher.innerHTML = langHTML;
 }
+
 
 
 
