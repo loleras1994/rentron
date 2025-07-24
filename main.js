@@ -66,14 +66,27 @@ function initHeaderInteractions() {
     });
   }
 
-  // Κλείσιμο όταν πατηθεί link
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('show');
-      document.body.classList.remove('menu-open');
-      if (rightTools) rightTools.style.display = '';
-    });
-  });
+	// Κλείσιμο όταν πατηθεί link (με fade animation + ενεργό link)
+	mobileMenu.querySelectorAll('a').forEach(link => {
+	  link.addEventListener('click', (e) => {
+		e.preventDefault(); // σταματάμε το redirect προσωρινά
+
+		// Επισήμανση active link
+		mobileMenu.querySelectorAll('a').forEach(el => el.classList.remove('active-link'));
+		link.classList.add('active-link');
+
+		// Κλείσιμο με animation
+		mobileMenu.classList.remove('show');
+		document.body.classList.remove('menu-open');
+		if (rightTools) rightTools.style.display = '';
+
+		// Προαιρετικά: αν θέλεις να περιμένει λίγο πριν φύγει
+		setTimeout(() => {
+		  window.location.href = link.href;
+		}, 600); // ίδιο με το CSS transition
+	  });
+	});
+
 
   // Κλείσιμο όταν πατήσεις έξω από το μενού
   document.addEventListener('click', (e) => {

@@ -1516,3 +1516,9 @@ html {
     gap: 10px; /* ή όσο θες να αφήσεις */
   }
 }
+
+
+.mobile-nav a.active-link {
+  color: #009fe3;
+}
+
