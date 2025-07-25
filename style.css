@@ -441,7 +441,7 @@ nav a:hover {
 }
 
 .about-image-band {
-  background: url('/images/factory.webp') no-repeat center center;
+  background: url('../images/factory.webp') no-repeat center center;
   background-size: cover;
   height: 280px;
   margin: 40px 0;
