@@ -202,7 +202,7 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-  background: url('./images/laser_cut.jpg') no-repeat center center;
+  background: url('./images/laser_cut.webp') no-repeat center center;
   background-size: cover;
   color: #fff;
   padding: 60px 0;
@@ -276,15 +276,50 @@ nav a:hover {
   border-radius: 8px;
   text-align: center;
   height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .product-card img {
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 5px;
-  background-color: white;
+  display: block;
+  object-fit: cover; /* or 'cover' if you want cropped fill */
+  border-radius: 8px; /* optional for rounded corners */
+  background-color: #e0ecf5;
 }
+
+.product-image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+
+.product-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--image-url);
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+.product-image img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+  background-color: transparent;
+}
+
+
 
 .product-card h4 {
   margin: 15px 0 10px;
@@ -406,7 +441,7 @@ nav a:hover {
 }
 
 .about-image-band {
-  background: url('/images/factory.jpg') no-repeat center center;
+  background: url('/images/factory.webp') no-repeat center center;
   background-size: cover;
   height: 280px;
   margin: 40px 0;
@@ -716,7 +751,7 @@ footer {
 }
 
 .slideshow .slide {
-  position:realtive;
+  position:relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -1521,4 +1556,3 @@ html {
 .mobile-nav a.active-link {
   color: #009fe3;
 }
-
