@@ -29,37 +29,37 @@
       <div class="product-grid">
 
         <div class="product-card">
-          <img src="../images/services/cutting.webp" alt="Sheet Metal Cutting" />
+          <div class="product-image"><img src="../images/services/cutting.webp" alt="Sheet Metal Cutting" /></div>
           <h2>Sheet Metal Cutting</h2>
           <p>Precision laser cutting with state-of-the-art machinery.</p><a href="cut.html" class="btn">Learn More →</a>
         </div>
 
         <div class="product-card">
-          <img src="../images/services/bending.webp" alt="Sheet Metal Bending" />
+          <div class="product-image"><img src="../images/services/bending.webp" alt="Sheet Metal Bending" /></div>
           <h2>Sheet Metal Bending</h2>
           <p>Accurate and repeatable metal bending with CNC brake presses.</p><a href="bend.html" class="btn">Learn More →</a>
         </div>
 
         <div class="product-card">
-          <img src="../images/services/welding.webp" alt="Welding" />
+          <div class="product-image"><img src="../images/services/welding.webp" alt="Welding" /></div>
           <h2>Welding</h2>
           <p>Experienced technicians for MIG, TIG, and spot welding jobs.</p><a href="weld.html" class="btn">Learn More →</a>
         </div>
 
         <div class="product-card">
-          <img src="../images/services/coating.webp" alt="Powder Coating" />
+          <div class="product-image"><img src="../images/services/coating.webp" alt="Powder Coating" /></div>
           <h2>Powder Coating</h2>
           <p>Durable surface finish with modern electrostatic powder coating.</p><a href="coating.html" class="btn">Learn More →</a>
         </div>
 
         <div class="product-card">
-          <img src="../images/services/printing.webp" alt="Silk Screen Printing" />
+          <div class="product-image"><img src="../images/services/printing.webp" alt="Silk Screen Printing" /></div>
           <h2>Silk Screen Printing</h2>
           <p>Custom designs and logos applied with precision and quality ink.</p><a href="print.html" class="btn">Learn More →</a>
         </div>
 
         <div class="product-card">
-          <img src="../images/services/assembly.webp" alt="Assembly" />
+          <div class="product-image"><img src="../images/services/assembly.webp" alt="Assembly" /></div>
           <h2>Assembly</h2>
           <p>We deliver complete, ready-to-use mechanical and electronic assemblies.</p><a href="assy.html" class="btn">Learn More →</a>
         </div>
@@ -79,6 +79,15 @@
 
 <div id="footer-placeholder"></div>
 <script src="../main.js" defer></script>
-
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".product-card").forEach(card => {
+      const img = card.querySelector("img");
+      if (img && img.src) {
+        card.querySelector('.product-image')?.style.setProperty('--image-url', `url(${img.src})`);
+      }
+    });
+  });
+</script>
 </body>
 </html>
