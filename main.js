@@ -19,9 +19,38 @@ fetch("footer.html")
     const footerPlaceholder = document.getElementById("footer-placeholder");
     if (footerPlaceholder) {
       footerPlaceholder.innerHTML = data;
-      showConsentBannerIfNeeded();  // ✅ Τρέχει μετά την εισαγωγή footer
+      
+      // ✅ Εδώ πλέον το banner υπάρχει στο DOM
+      showConsentBannerIfNeeded();
+
+      // ✅ Συνδέουμε listeners με το σωστό timing
+      const consentForm = document.getElementById('cookie-consent-form');
+      if (consentForm) {
+        consentForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const form = e.target;
+          const consent = {
+            preferences: true,
+            analytics: form.analytics.checked,
+            marketing: form.marketing.checked
+          };
+          setCookie('cookieConsent', encodeURIComponent(JSON.stringify(consent)), 180);
+          document.getElementById('cookie-consent-banner').style.display = 'none';
+          loadGoogleAnalytics();
+        });
+      }
+
+      const rejectBtn = document.getElementById('reject-all');
+      if (rejectBtn) {
+        rejectBtn.addEventListener('click', () => {
+          const consent = { preferences: true, analytics: false, marketing: false };
+          setCookie('cookieConsent', encodeURIComponent(JSON.stringify(consent)), 180);
+          document.getElementById('cookie-consent-banner').style.display = 'none';
+        });
+      }
     }
   });
+
 
 
 
@@ -179,42 +208,25 @@ function loadGoogleAnalytics() {
 }
 
 function showConsentBannerIfNeeded() {
-  const banner = document.getElementById('cookie-consent-banner');
-  if (!banner) return;
+  const cookie = getCookie('cookieConsent');
+  if (!cookie) {
+    // No consent at all → show banner
+    document.getElementById('cookie-consent-banner').style.display = 'block';
+    return;
+  }
 
-  const consent = getCookie('cookieConsent');
-  if (!consent) {
-    banner.style.display = 'block';
-  } else {
-    loadGoogleAnalytics();
+  // Προσπάθεια ανάγνωσης JSON από το cookie
+  try {
+    const consent = JSON.parse(decodeURIComponent(cookie));
+    if (consent.analytics) {
+      loadGoogleAnalytics();
+    }
+    // Αν θέλεις: ενεργοποίησε άλλα scripts για marketing εδώ
+
+  } catch (e) {
+    // Αν κάτι πάει λάθος, δείξε ξανά το banner
+    document.getElementById('cookie-consent-banner').style.display = 'block';
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  showConsentBannerIfNeeded();
-
-  document.getElementById('cookie-consent-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const consent = {
-      preferences: true,
-      analytics: form.analytics.checked,
-      marketing: form.marketing.checked
-    };
-    setCookie('cookieConsent', encodeURIComponent(JSON.stringify(consent)), 180);
-    document.getElementById('cookie-consent-banner').style.display = 'none';
-    loadGoogleAnalytics();
-  });
-
-  document.getElementById('reject-all').addEventListener('click', () => {
-    const consent = { preferences: true, analytics: false, marketing: false };
-    setCookie('cookieConsent', encodeURIComponent(JSON.stringify(consent)), 180);
-    document.getElementById('cookie-consent-banner').style.display = 'none';
-  });
-});
-
-
-
-
 
 
