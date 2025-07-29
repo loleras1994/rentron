@@ -141,10 +141,9 @@ function setupLangSwitcher() {
 // ================================================
 
 function loadGoogleAnalytics() {
-  const GA_ID = 'G-XTYJX4GCPB';
   const gtagScript = document.createElement('script');
   gtagScript.async = true;
-  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XTYJX4GCPB";
   document.head.appendChild(gtagScript);
 
   gtagScript.onload = () => {
@@ -154,7 +153,7 @@ function loadGoogleAnalytics() {
     window.gtag = gtag;
 
     gtag('js', new Date());
-    gtag('config', GA_ID);
+    gtag('config', 'G-XTYJX4GCPB');
 
     console.log("✅ Sending page_view manually...");
     gtag('event', 'page_view', {
