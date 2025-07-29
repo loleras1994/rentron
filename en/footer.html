@@ -41,14 +41,18 @@
   </div>
 </footer>
 <!-- Cookie Consent Banner -->
-<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #222; color: white; padding: 16px; z-index: 9999; display: none;">
-  <div style="max-width: 800px; margin: auto; display: flex; flex-direction: column; gap: 10px; text-align: center;">
-    <p>We use cookies to analyze traffic and improve your experience. By clicking "Accept", you agree to our use of Google Analytics.</p>
-    <div>
-      <button id="cookie-accept" style="margin-right: 10px;">Accept</button>
-      <button id="cookie-reject">Reject</button>
-    </div>
+<div id="cookie-consent-banner" style="position:fixed; bottom:0; left:0; right:0; background:#222; color:#fff; padding:16px; z-index:9999; display:none;">
+  <div style="max-width:800px; margin:auto; text-align:center;">
+    <p>We use cookies to enhance your experience. Choose which categories you allow. <a href="/cookie-policy.html" style="color:#ccc;">Learn more</a>.</p>
+    <form id="cookie-consent-form">
+      <label><input type="checkbox" name="preferences" checked disabled /> Preferences (required)</label><br>
+      <label><input type="checkbox" name="analytics" /> Analytics</label><br>
+      <label><input type="checkbox" name="marketing" /> Marketing</label><br><br>
+      <button type="submit">Accept Selected</button>
+      <button type="button" id="reject-all">Reject All</button>
+    </form>
   </div>
 </div>
+
 
 
