@@ -148,14 +148,23 @@ function loadGoogleAnalytics() {
   document.head.appendChild(gtagScript);
 
   gtagScript.onload = () => {
+    console.log("✅ GA script loaded");
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     window.gtag = gtag;
 
     gtag('js', new Date());
     gtag('config', GA_ID);
+
+    console.log("✅ Sending page_view manually...");
+    gtag('event', 'page_view', {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: window.location.pathname
+    });
   };
 }
+
 
 function showCookieBanner() {
   const banner = document.getElementById('cookie-banner');
