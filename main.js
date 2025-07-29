@@ -19,8 +19,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const footerPlaceholder = document.getElementById("footer-placeholder");
       if (footerPlaceholder) {
         footerPlaceholder.innerHTML = data;
+
+        // ✅ Cookie Consent logic starts AFTER footer is injected
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'accepted') {
+          loadGoogleAnalytics();
+        } else if (consent === null) {
+          showCookieBanner();
+        }
       }
     });
+
 
   // Start slideshows
   document.querySelectorAll('.slideshow').forEach((slideshow) => {
@@ -126,6 +135,52 @@ function setupLangSwitcher() {
   if (desktopSwitcher) desktopSwitcher.innerHTML = langHTML;
   if (mobileSwitcher) mobileSwitcher.innerHTML = langHTML;
 }
+
+// ================================================
+// Cookie Consent for Google Analytics
+// ================================================
+
+function loadGoogleAnalytics() {
+  const GA_ID = 'G-XTYJX4GCPB';
+  const gtagScript = document.createElement('script');
+  gtagScript.async = true;
+  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  document.head.appendChild(gtagScript);
+
+  gtagScript.onload = () => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+  };
+}
+
+function showCookieBanner() {
+  const banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+  banner.style.display = 'block';
+
+  const acceptBtn = document.getElementById('cookie-accept');
+  const rejectBtn = document.getElementById('cookie-reject');
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      banner.style.display = 'none';
+      loadGoogleAnalytics();
+    });
+  }
+
+  if (rejectBtn) {
+    rejectBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'rejected');
+      banner.style.display = 'none';
+    });
+  }
+}
+
 
 
 
