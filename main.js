@@ -210,7 +210,6 @@ function loadGoogleAnalytics() {
 function showConsentBannerIfNeeded() {
   const cookie = getCookie('cookieConsent');
   if (!cookie) {
-    // Δεν υπάρχει συναίνεση → δείξε banner
     document.getElementById('cookie-consent-banner').style.display = 'block';
     return;
   }
@@ -218,19 +217,19 @@ function showConsentBannerIfNeeded() {
   try {
     const consent = JSON.parse(decodeURIComponent(cookie));
 
-    // ✔️ Αν έχει αποδεχτεί analytics → φόρτωσε Google Analytics
+    // Αν έχει αποδεχτεί analytics, φόρτωσε GA
     if (consent.analytics) {
       loadGoogleAnalytics();
     }
 
-    // ✔️ Μην εμφανίζεις το banner σε κάθε περίπτωση — έχει ήδη δοθεί συναίνεση
-    // Δεν χρειάζεται να εμφανιστεί
-
+    // Σε κάθε περίπτωση, ΜΗΝ εμφανίσεις το banner ξανά
+    // ακόμα και αν ο χρήστης δεν δέχτηκε analytics/marketing
   } catch (e) {
     // Αν το cookie είναι corrupted → δείξε banner
     document.getElementById('cookie-consent-banner').style.display = 'block';
   }
 }
+
 
 
 
