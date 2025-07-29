@@ -13,22 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   // Load FOOTER (no interaction logic needed)
-  fetch("footer.html")
-    .then(response => response.text())
-    .then(data => {
-      const footerPlaceholder = document.getElementById("footer-placeholder");
-      if (footerPlaceholder) {
-        footerPlaceholder.innerHTML = data;
+fetch("footer.html")
+  .then(response => response.text())
+  .then(data => {
+    const footerPlaceholder = document.getElementById("footer-placeholder");
+    if (footerPlaceholder) {
+      footerPlaceholder.innerHTML = data;
+      showConsentBannerIfNeeded();  // ✅ Τρέχει μετά την εισαγωγή footer
+    }
+  });
 
-        // ✅ Cookie Consent logic starts AFTER footer is injected
-        const consent = localStorage.getItem('cookieConsent');
-        if (consent === 'accepted') {
-          loadGoogleAnalytics();
-        } else if (consent === null) {
-          showCookieBanner();
-        }
-      }
-    });
 
 
   // Start slideshows
@@ -185,8 +179,12 @@ function loadGoogleAnalytics() {
 }
 
 function showConsentBannerIfNeeded() {
-  if (!getCookie('cookieConsent')) {
-    document.getElementById('cookie-consent-banner').style.display = 'block';
+  const banner = document.getElementById('cookie-consent-banner');
+  if (!banner) return;
+
+  const consent = getCookie('cookieConsent');
+  if (!consent) {
+    banner.style.display = 'block';
   } else {
     loadGoogleAnalytics();
   }
