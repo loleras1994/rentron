@@ -185,17 +185,20 @@ function loadGoogleAnalytics() {
 function showConsentBannerIfNeeded() {
   const consent = getCookie('cookieConsent');
 
+  // Αν έχει δώσει συναίνεση, φόρτωσε Analytics
   if (consent === 'accepted') {
     loadGoogleAnalytics();
     return;
   }
 
-  // Εμφάνισε το banner μόνο αν ΔΕΝ υπάρχει καθόλου cookie
-  if (consent === undefined) {
+  // Αν έχει απορρίψει ή δεν έχει απαντήσει, ΜΗ φορτώσεις Analytics,
+  // αλλά ΕΜΦΑΝΙΣΕ το banner μόνο αν δεν υπάρχει καθόλου cookie
+  if (!consent) {
     const banner = document.getElementById('cookie-banner');
     if (banner) banner.style.display = 'block';
   }
 }
+
 
 
 
