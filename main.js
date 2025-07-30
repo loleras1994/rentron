@@ -187,13 +187,16 @@ function showConsentBannerIfNeeded() {
 
   if (consent === 'accepted') {
     loadGoogleAnalytics();
+    return;
   }
 
-  if (!consent) {
+  // Εμφάνισε το banner μόνο αν ΔΕΝ υπάρχει καθόλου cookie
+  if (consent === undefined) {
     const banner = document.getElementById('cookie-banner');
     if (banner) banner.style.display = 'block';
   }
 }
+
 
 
 
