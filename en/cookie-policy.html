@@ -2,77 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cookie Policy</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1 {
-      font-size: 1.8rem;
-    }
-    h2 {
-      margin-top: 2rem;
-    }
-    .button {
-      margin-top: 2rem;
-      padding: 10px 20px;
-      background-color: #222;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .button:hover {
-      background-color: #444;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy | Rentron SA</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
 </head>
 <body>
+<div class="top-banner">
+  <div class="container">
+    <a href="../files/espa3.pdf" target="_blank" rel="noopener">
+      <img src="../images/espa3.webp" alt="ΕΣΠΑ 3" class="banner-image" />
+    </a>
+  </div>  
+</div>
+<header id="main-header"></header>
+<section class="hero">
+  <div class="container">
+      <h1>Cookie Policy</h1>
+      <p>Manage how we use cookies on this site</p>
+  </div>
+</section>
 
-  <h1>Cookie Policy</h1>
+  <section class="page-content">
+    <div class="container">
+      <p>
+        We use cookies to enhance your browsing experience and to analyze traffic using Google Analytics.
+        Cookies are small text files stored on your device. You may control your preferences at any time.
+      </p>
 
-  <p>
-    This website uses cookies to improve your experience and to analyze usage through Google Analytics.
-    Cookies are small text files stored on your device. You can manage your cookie preferences below.
-  </p>
+      <h2>Cookies Used</h2>
+      <ul>
+        <li><strong>Consent Cookie:</strong> Remembers whether you accepted or rejected analytics cookies. Stored for 1 month.</li>
+        <li><strong>Google Analytics:</strong> Helps us understand how visitors use our website. No personally identifiable information is collected.</li>
+      </ul>
 
-  <h2>Cookie Categories</h2>
+      <h2>Manage Your Preferences</h2>
+      <p>You can change your cookie preferences anytime by clicking the button below.</p>
 
-  <h3>1. Preferences (Required)</h3>
-  <p>
-    These cookies are necessary for basic site functionality (e.g., remembering your consent settings) and cannot be disabled.
-  </p>
-
-  <h3>2. Analytics</h3>
-  <p>
-    We use Google Analytics to understand how visitors interact with our site. These cookies collect aggregated, anonymous data.
-  </p>
-
-  <h3>3. Marketing</h3>
-  <p>
-    Marketing cookies may be used in the future to track users across websites or serve relevant ads. Currently disabled by default.
-  </p>
-
-  <h2>Managing Your Preferences</h2>
-
-  <p>
-    You can update or revoke your cookie preferences at any time using the button below.
-  </p>
-
-  <button class="button" onclick="resetConsent()">Change My Cookie Preferences</button>
-
+	  <button id="reset-cookies" class="btn">Change My Preferences</button>
+    </div>
+  </section>
+  
+  <div id="footer-placeholder"></div>
+  <script src="../main.js" defer></script>
   <script>
-    function resetConsent() {
+    document.getElementById("reset-cookies").addEventListener("click", () => {
       document.cookie = "cookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      location.href = "/rentron/en/";
-    }
+      location.href = "/rentron/en/"; // adjust if needed
+    });
   </script>
-
 </body>
 </html>
