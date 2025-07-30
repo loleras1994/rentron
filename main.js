@@ -24,30 +24,23 @@ fetch("footer.html")
       showConsentBannerIfNeeded();
 
       // ✅ Συνδέουμε listeners με το σωστό timing
-      const consentForm = document.getElementById('cookie-consent-form');
-      if (consentForm) {
-        consentForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const form = e.target;
-          const consent = {
-            preferences: true,
-            analytics: form.analytics.checked,
-            marketing: form.marketing.checked
-          };
-          setCookie('cookieConsent', encodeURIComponent(JSON.stringify(consent)), 180);
-          document.getElementById('cookie-consent-banner').style.display = 'none';
-          loadGoogleAnalytics();
-        });
-      }
+		const acceptBtn = document.getElementById('accept-cookies');
+		const rejectBtn = document.getElementById('reject-cookies');
 
-      const rejectBtn = document.getElementById('reject-all');
-      if (rejectBtn) {
-        rejectBtn.addEventListener('click', () => {
-          const consent = { preferences: true, analytics: false, marketing: false };
-          setCookie('cookieConsent', encodeURIComponent(JSON.stringify(consent)), 180);
-          document.getElementById('cookie-consent-banner').style.display = 'none';
-        });
-      }
+		if (acceptBtn) {
+		  acceptBtn.addEventListener('click', () => {
+			setCookie('cookieConsent', 'accepted', 30);
+			document.getElementById('cookie-banner').style.display = 'none';
+			loadGoogleAnalytics();
+		  });
+		}
+
+		if (rejectBtn) {
+		  rejectBtn.addEventListener('click', () => {
+			setCookie('cookieConsent', 'rejected', 30);
+			document.getElementById('cookie-banner').style.display = 'none';
+		  });
+		}
     }
   });
 
@@ -165,27 +158,15 @@ function setupLangSwitcher() {
 
 function setCookie(name, value, days) {
   const expires = new Date(Date.now() + days*864e5).toUTCString();
-  document.cookie = `${name}=${value}; expires=${expires}; path=/; SameSite=Lax`;
+  const secure = location.protocol === 'https:' ? ' Secure;' : '';
+  document.cookie = `${name}=${value}; expires=${expires}; path=/; SameSite=Lax;${secure}`;
 }
 
 function getCookie(name) {
   return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
 }
 
-function parseConsent() {
-  const consentCookie = getCookie('cookieConsent');
-  if (!consentCookie) return null;
-  try {
-    return JSON.parse(decodeURIComponent(consentCookie));
-  } catch {
-    return null;
-  }
-}
-
 function loadGoogleAnalytics() {
-  const consent = parseConsent();
-  if (!consent?.analytics) return;
-
   const gtagScript = document.createElement('script');
   gtagScript.async = true;
   gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XTYJX4GCPB";
@@ -198,37 +179,22 @@ function loadGoogleAnalytics() {
 
     gtag('js', new Date());
     gtag('config', 'G-XTYJX4GCPB', { anonymize_ip: true });
-
-    gtag('event', 'page_view', {
-      page_title: document.title,
-      page_location: window.location.href,
-      page_path: window.location.pathname
-    });
   };
 }
 
 function showConsentBannerIfNeeded() {
-  const cookie = getCookie('cookieConsent');
-  if (!cookie) {
-    document.getElementById('cookie-consent-banner').style.display = 'block';
-    return;
+  const consent = getCookie('cookieConsent');
+
+  if (consent === 'accepted') {
+    loadGoogleAnalytics();
   }
 
-  try {
-    const consent = JSON.parse(decodeURIComponent(cookie));
-
-    // Αν έχει αποδεχτεί analytics, φόρτωσε GA
-    if (consent.analytics) {
-      loadGoogleAnalytics();
-    }
-
-    // Σε κάθε περίπτωση, ΜΗΝ εμφανίσεις το banner ξανά
-    // ακόμα και αν ο χρήστης δεν δέχτηκε analytics/marketing
-  } catch (e) {
-    // Αν το cookie είναι corrupted → δείξε banner
-    document.getElementById('cookie-consent-banner').style.display = 'block';
+  if (!consent) {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.display = 'block';
   }
 }
+
 
 
 

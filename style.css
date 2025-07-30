@@ -1566,54 +1566,47 @@ html {
   right: 0;
   background: #1c1c1c;
   color: white;
-  padding: 20px;
+  padding: 16px;
   z-index: 9999;
+  text-align: center;
   font-size: 14px;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
-  display: none;
 }
-
-.cookie-banner-container {
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
-
-.cookie-banner p {
-  margin-bottom: 12px;
-}
-
-.cookie-banner form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.cookie-banner label {
-  display: inline-block;
-}
-
-.cookie-banner .cookie-buttons {
-  margin-top: 10px;
-}
-
-.cookie-banner button {
-  margin: 8px 4px 0 4px;
-  padding: 6px 14px;
-  border: none;
-  border-radius: 4px;
-  background-color: #008cff;
-  color: white;
-  cursor: pointer;
-}
-
-.cookie-banner button:hover {
-  background-color: #0072cc;
-}
-
 .cookie-banner a {
   color: #66bfff;
   text-decoration: underline;
-  font-size: 13px;
+}
+.cookie-buttons {
+  margin-top: 10px;
+}
+.cookie-buttons button {
+  margin: 0 5px;
+  padding: 6px 12px;
+  background: #008cff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+.cookie-buttons button:hover {
+  background: #0072cc;
+}
+
+
+.cookie-policy a {
+  color: #66bfff;
+  text-decoration: underline;
+}
+
+.cookie-policy button {
+  background: #008cff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.cookie-policy button:hover {
+  background: #0072cc;
 }
