@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Rentron SA</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="top-banner">
+  <div class="container">
+    <a href="../files/espa3.pdf" target="_blank" rel="noopener">
+      <img src="../images/espa3.webp" alt="ΕΣΠΑ 3" class="banner-image" />
+    </a>
+  </div>  
+</div>
+
+<header id="main-header"></header>
+
+<section class="hero">
+  <div class="container">
+      <h1>Privacy & Cookie Policy</h1>
+      <p>Learn how we protect your data and how we use cookies</p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    <h2>1. Privacy Policy</h2>
+    <p>At Rentron SA, we take your privacy seriously. This policy explains what personal data we collect, why we collect it, and how we handle it.</p>
+
+    <h3>What We Collect</h3>
+    <ul>
+      <li>Name and email when you contact us via the contact form</li>
+      <li>Anonymous usage data via Google Analytics (if you consent)</li>
+    </ul>
+
+    <h3>How We Use It</h3>
+    <ul>
+      <li>To respond to inquiries and provide support</li>
+      <li>To analyze site traffic (with user consent)</li>
+    </ul>
+
+    <h3>Data Retention</h3>
+    <p>We store contact form data for up to 6 months, and analytics data as per Google's retention settings.</p>
+
+    <h3>Your Rights</h3>
+    <p>You have the right to request access, correction, or deletion of your data. Contact us at <a href="mailto:info@rentron.gr">info@rentron.gr</a>.</p>
+
+    <hr />
+
+    <h2>2. Cookie Policy</h2>
+    <p>
+      We use cookies to enhance your browsing experience and to analyze traffic using Google Analytics.
+      Cookies are small text files stored on your device. You may control your preferences at any time.
+    </p>
+
+    <h3>Cookies Used</h3>
+    <ul>
+      <li><strong>Consent Cookie:</strong> Remembers your cookie preference. Stored for 1 month.</li>
+      <li><strong>Google Analytics:</strong> Used to understand how visitors use our website. No personally identifiable information is collected.</li>
+    </ul>
+
+    <h3>Manage Your Preferences</h3>
+    <p>You can change your cookie preferences anytime by clicking the button below.</p>
+    <button id="reset-cookies" class="btn">Change My Preferences</button>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="../main.js" defer></script>
+<script>
+  document.getElementById("reset-cookies").addEventListener("click", () => {
+    document.cookie = "cookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    location.href = "/rentron/en/";
+  });
+</script>
+</body>
+</html>
