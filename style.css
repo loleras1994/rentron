@@ -1571,6 +1571,7 @@ html {
   text-align: center;
   font-size: 14px;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+  display: none;	
 }
 .cookie-banner a {
   color: #66bfff;
