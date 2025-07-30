@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Πολιτική Απορρήτου & Cookies | Rentron ΑΕΒΕ</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<div class="top-banner">
+  <div class="container">
+    <a href="../files/espa3.pdf" target="_blank" rel="noopener">
+      <img src="../images/espa3.webp" alt="ΕΣΠΑ 3" class="banner-image" />
+    </a>
+  </div>  
+</div>
+
+<header id="main-header"></header>
+
+<section class="hero">
+  <div class="container">
+      <h1>Πολιτική Απορρήτου & Cookies</h1>
+      <p>Πώς προστατεύουμε τα δεδομένα σας και πώς χρησιμοποιούμε cookies</p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    <h2>1. Πολιτική Απορρήτου</h2>
+    <p>Στη Rentron SA, σεβόμαστε την ιδιωτικότητά σας. Αυτή η πολιτική εξηγεί ποια προσωπικά δεδομένα συλλέγουμε, γιατί και πώς τα διαχειριζόμαστε.</p>
+
+    <h3>Τι Συλλέγουμε</h3>
+    <ul>
+      <li>Όνομα και email μέσω της φόρμας επικοινωνίας</li>
+      <li>Ανώνυμα στατιστικά χρήσης μέσω Google Analytics (με συγκατάθεση)</li>
+    </ul>
+
+    <h3>Πώς Χρησιμοποιούνται</h3>
+    <ul>
+      <li>Για να απαντήσουμε στα ερωτήματά σας</li>
+      <li>Για στατιστική ανάλυση επισκεψιμότητας (αν επιτρέψετε cookies)</li>
+    </ul>
+
+    <h3>Διατήρηση Δεδομένων</h3>
+    <p>Τα στοιχεία επικοινωνίας διατηρούνται για έως 6 μήνες. Τα δεδομένα Analytics αποθηκεύονται βάσει των ρυθμίσεων της Google.</p>
+
+    <h3>Τα Δικαιώματά σας</h3>
+    <p>Μπορείτε να ζητήσετε πρόσβαση, διόρθωση ή διαγραφή των δεδομένων σας στέλνοντας email στο <a href="mailto:support@rentron.gr">support@rentron.gr</a>.</p>
+
+    <hr />
+
+    <h2>2. Πολιτική Cookies</h2>
+    <p>
+      Χρησιμοποιούμε cookies για να βελτιώσουμε την εμπειρία πλοήγησης και να αναλύσουμε την επισκεψιμότητα μέσω Google Analytics.
+      Τα cookies είναι μικρά αρχεία κειμένου που αποθηκεύονται στη συσκευή σας.
+    </p>
+
+    <h3>Cookies που Χρησιμοποιούμε</h3>
+    <ul>
+      <li><strong>Cookie Συναίνεσης:</strong> Θυμάται τις προτιμήσεις σας. Ισχύει για 1 μήνα.</li>
+      <li><strong>Google Analytics:</strong> Παρέχει στατιστικά επισκεψιμότητας. Δεν συλλέγονται προσωπικά στοιχεία.</li>
+    </ul>
+
+    <h3>Διαχείριση Προτιμήσεων</h3>
+    <p>Μπορείτε να αλλάξετε τις προτιμήσεις σας ανά πάσα στιγμή πατώντας το παρακάτω κουμπί.</p>
+    <button id="reset-cookies" class="btn">Αλλαγή Προτιμήσεων Cookies</button>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="../main.js" defer></script>
+<script>
+  document.getElementById("reset-cookies").addEventListener("click", () => {
+    document.cookie = "cookieConsent=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    location.href = "/rentron/el/";
+  });
+</script>
+</body>
+</html>
