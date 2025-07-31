@@ -160,13 +160,13 @@
       heightEl.textContent = match.height;
       datasheetEl.innerHTML = `<a href="../files/${match.frameCode}.pdf" target="_blank" rel="noopener">Download PDF</a>`;
 
-      sideEl.textContent = includeSide ? match.sidePanelsCode : "—";
+      sideEl.textContent = includeSide ? match.sidePanelsCode : "Not Selected";
 
       switch (frontType) {
         case "plexi": frontEl.textContent = match.plexiDoorCode; break;
         case "blind": frontEl.textContent = match.blindDoorCode; break;
         case "punched": frontEl.textContent = match.holePunchedDoorCode; break;
-        default: frontEl.textContent = "—";
+        default: frontEl.textContent = "Not Selected";
       }
 
       switch (rearType) {
@@ -174,10 +174,10 @@
         case "plexi": rearEl.textContent = match.plexiDoorCode; break;
         case "blind": rearEl.textContent = match.blindDoorCode; break;
         case "punched": rearEl.textContent = match.holePunchedDoorCode; break;
-        default: rearEl.textContent = "—";
+        default: rearEl.textContent = "Not Selected";
       }
     } else {
-      codeEl.textContent = "—";
+      codeEl.textContent = "Ask for a Custom Quote";
       heightEl.textContent = "—";
       datasheetEl.textContent = "—";
       sideEl.textContent = frontEl.textContent = rearEl.textContent = "—";
