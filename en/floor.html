@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Floor Standing Racks | Rentron SA</title>
+  <meta name="description" content="Durable, modular floor‐standing racks for telecom and industrial applications—customizable U height, width, depth, doors & panels." />
   <link rel="stylesheet" href="../style.css" />
   <link rel="icon" href="../favicon.ico" type="image/x-icon" />
 </head>
@@ -27,6 +28,17 @@
 
 <section class="rack-detail">
   <div class="container">
+    <p>
+      The Floor Standing Racks series is designed for high-end IT and telecom applications,
+      offering optimal airflow, cable management, and easy access.
+    </p>
+    <h3>Main Features</h3>
+    <ul class="features-list">
+      <li>Modular construction with front and rear doors</li>
+      <li>Perforated steel panels for ventilation</li>
+      <li>Available with adjustable feet or casters</li>
+      <li>Available with optional fan units and power strips</li>
+    </ul>
     <div class="rack-layout">
       <img src="../images/floor-main.webp" alt="Floor Standing Racks" class="rack-main-image" />
 
@@ -53,8 +65,6 @@
 			<p><strong>Rack Frame Code:</strong> <span id="rack-code">—</span></p>
 			<p><strong>Datasheet:</strong> <span id="rack-datasheet">—</span></p>
 		  </div>
-
-		  <a href="contact.html" class="btn quote-btn">Request a Quote</a>
 		</div>
       </div>
 	  
@@ -92,32 +102,22 @@
 			<p><strong>Front Door:</strong> <span id="front-code">—</span></p>
 			<p><strong>Rear:</strong> <span id="rear-code">—</span></p>
 		  </div>
-
-		  <a href="contact.html" class="btn quote-btn">Request a Quote</a>
 		</div>
       </div>
 
 	  
     </div>
-
-    <p>
-      The Floor Standing Racks series is designed for high-end IT and telecom applications,
-      offering optimal airflow, cable management, and easy access.
-    </p>
-
-    <h3>Main Features</h3>
-    <ul class="features-list">
-      <li>Modular construction with front and rear doors</li>
-      <li>Perforated steel panels for ventilation</li>
-      <li>Available with adjustable feet or casters</li>
-      <li>Available with optional fan units and power strips</li>
-    </ul>
+	<div style="text-align: center; margin-top: 15px;">
+	  <button id="request-quote" class="btn quote-btn">
+		Request a Quote
+	  </button>
+	</div>
   </div>
 </section>
 
 
 <div id="footer-placeholder"></div>
-<script src="../floor-racks-data.js"></script>
+<script src="../floor-racks-data.js" defer></script>
 <script>
   const uSelect = document.getElementById("u-select");
   const widthSelect = document.getElementById("width-select");
@@ -199,6 +199,46 @@
   frontDoorSelect.addEventListener("change", updateOptions);
   rearOptionSelect.addEventListener("change", updateOptions);
 </script>
+
+<script>
+  document.getElementById('request-quote').addEventListener('click', () => {
+    const u         = document.getElementById('u-select').value;
+    const width     = document.getElementById('width-select').value;
+    const depth     = document.getElementById('depth-select').value;
+    const frameCode = document.getElementById('rack-code').textContent.trim();
+
+    // Side panels
+    const panelsSel = document.getElementById('side-panels').checked;
+    const sideCode  = panelsSel
+      ? document.getElementById('side-code').textContent.trim()
+      : '';
+
+    // Front door
+    const frontType = document.getElementById('front-door-type').value;       // e.g. "none", "plexi", "blind"
+    const frontCode = frontType !== 'none'
+      ? document.getElementById('front-code').textContent.trim()
+      : '';
+
+    // Rear
+    const rearType  = document.getElementById('rear-option').value;           // e.g. "none", "panel", "blind"
+    const rearCode  = rearType !== 'none'
+      ? document.getElementById('rear-code').textContent.trim()
+      : '';
+
+    const params = new URLSearchParams({
+      u, width, depth, frameCode,
+      sideCode,
+      frontType, frontCode,
+      rearType,  rearCode
+    });
+
+    window.location.href = `/en/contact.html?${params.toString()}`;
+  });
+</script>
+
+
+
+
 <script src="../main.js" defer></script>
 
 </body>

@@ -83,6 +83,113 @@
   </section>
 
 <div id="footer-placeholder"></div>
+
+<script>
+  function prefillFromQuery() {
+    const params    = new URLSearchParams(window.location.search);
+	// bail out if no params
+	if (![...params].length) return;
+	
+    const doorMap   = { plexi:'Plexiglass Door', blind:'Blind Door', punched:'Hole-Punched Door' };
+    const rackSuffix= key => key==='u'?'U':(key==='width'||key==='depth')?' mm':'';
+
+    // 1) detect custom
+    const frameCode = params.get('frameCode')||'';
+    const isCustom  = !frameCode
+      || frameCode.toLowerCase().includes('ask for a custom quote');
+
+    // 2) intro
+    const introLine = isCustom
+      ? 'I’d like to request a quote for a custom rack configured as follows:'
+      : 'I’d like to request a quote for a rack configured as follows:';
+
+    // 3) rack specs
+    const rackKeys   = ['u','width','depth'];
+    const rackLabels = { u:'Height', width:'Width', depth:'Depth' };
+    const rackLines  = rackKeys.map(k=>{
+      const v = params.get(k)||'—';
+      return `- ${rackLabels[k]}: ${v}${rackSuffix(k)}`;
+    });
+
+    // 4) side panels
+    const sideCode = params.get('sideCode');
+    const sideLine = isCustom
+      ? `- Side Panels: ${sideCode?'Yes':'None'}`
+      : `- Side Panels: ${sideCode||'None'}`;
+
+    // 5) front door
+    const frontType = params.get('frontType');
+    const frontCode = params.get('frontCode');
+    let frontLine;
+    if (isCustom) {
+      frontLine = `- Front Door: ${
+        frontType && frontType!=='none'
+          ? doorMap[frontType]||frontType
+          : 'None'
+      }`;
+    } else {
+      frontLine = frontCode
+        ? `- Front Door: ${doorMap[frontType]||frontType} (${frontCode})`
+        : `- Front Door: None`;
+    }
+
+    // 6) rear option
+    const rearType = params.get('rearType');
+    const rearCode = params.get('rearCode');
+    let rearLine;
+    if (isCustom) {
+      rearLine = `- Rear: ${
+        rearType && rearType!=='none'
+          ? (rearType==='panel'
+             ? 'Panel'
+             : doorMap[rearType]||rearType)
+          : 'None'
+      }`;
+    } else {
+      if (!rearType || rearType==='none')
+        rearLine = `- Rear: None`;
+      else if (rearType==='panel')
+        rearLine = `- Rear: Panel (${rearCode})`;
+      else
+        rearLine = `- Rear: ${doorMap[rearType]||rearType} (${rearCode})`;
+    }
+
+    // 7) assemble message
+    const lines = [
+      'Hello,',
+      '',
+      introLine,
+      ...rackLines
+    ];
+
+    // only include the Rack Frame Code line when not custom
+    if (!isCustom) {
+      lines.push(`- Rack Frame Code: ${frameCode}`);
+    }
+
+    lines.push(
+      '',        // blank line before panels
+      sideLine,
+      frontLine,
+      rearLine,
+      '',
+      'Please let me know the pricing and lead time.',
+      '',
+      'Thank you.'
+    );
+
+    document.getElementById('message').value = lines.join('\n');
+  }
+
+  window.addEventListener('DOMContentLoaded', prefillFromQuery);
+</script>
+
+
+
+
+
+
+
   <script src="../main.js" defer></script>
 </body>
 </html>
