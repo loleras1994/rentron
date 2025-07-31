@@ -31,31 +31,73 @@
       <img src="../images/floor-main.webp" alt="Floor Standing Racks" class="rack-main-image" />
 
       <div class="rack-selector-box">
-        <h3>Available Sizes</h3>
-        <div class="rack-selector">
-          <div class="rack-dropdowns">
+        <h3>Available Rack Frame Sizes</h3>
+		<div class="rack-selector">
+		  <div class="rack-dropdowns">
 			<div class="select-row">
 			  <label for="u-select">U Height:</label>
-			  <select id="u-select" onchange="updateOptions()"></select>
+			  <select id="u-select"></select>
 			</div>
 			<div class="select-row">
-              <label for="width-select">Width (mm):</label>
-              <select id="width-select" onchange="updateOptions()"></select>
+			  <label for="width-select">Width (mm):</label>
+			  <select id="width-select"></select>
 			</div>
 			<div class="select-row">
-              <label for="depth-select">Depth (mm):</label>
-              <select id="depth-select" onchange="updateOptions()"></select>
-			</div>  
-          </div>
+			  <label for="depth-select">Depth (mm):</label>
+			  <select id="depth-select"></select>
+			</div>
+		  </div>
 
-          <div class="rack-results">
-            <p><strong>Rack Code:</strong> <span id="rack-code">—</span></p>
-            <p><strong>Datasheet:</strong> <span id="rack-datasheet">—</span></p>
-          </div>
+		  <div class="rack-results">
+			<p><strong>Height (mm):</strong> <span id="rack-height">—</span></p>
+			<p><strong>Rack Frame Code:</strong> <span id="rack-code">—</span></p>
+			<p><strong>Datasheet:</strong> <span id="rack-datasheet">—</span></p>
+		  </div>
 
-          <a href="contact.html" class="btn quote-btn">Request a Quote</a>
-        </div>
+		  <a href="contact.html" class="btn quote-btn">Request a Quote</a>
+		</div>
       </div>
+	  
+	  
+      <div class="rack-selector-box">
+        <h3>Available Front-Rear-Side Panels & Doors</h3>
+		<div class="rack-selector">
+		  <div class="rack-dropdowns">
+			<div class="select-row">
+			  <label><input type="checkbox" id="side-panels"> Include Side Panels</label>
+			</div>
+			<div class="select-row">
+			  <label for="front-door-type">Front Door:</label>
+			  <select id="front-door-type">
+				<option value="none">None</option>
+				<option value="plexi">Plexiglass</option>
+				<option value="blind">Blind</option>
+				<option value="punched">Hole-Punched</option>
+			  </select>
+			</div>
+			<div class="select-row">
+			  <label for="rear-option">Rear Option:</label>
+			  <select id="rear-option">
+				<option value="none">None</option>
+				<option value="panel">Panel</option>
+				<option value="plexi">Plexiglass Door</option>
+				<option value="blind">Blind Door</option>
+				<option value="punched">Hole-Punched Door</option>
+			  </select>
+			</div>
+		  </div>
+
+		  <div class="rack-results">
+			<p><strong>Side Panels:</strong> <span id="side-code">—</span></p>
+			<p><strong>Front Door:</strong> <span id="front-code">—</span></p>
+			<p><strong>Rear:</strong> <span id="rear-code">—</span></p>
+		  </div>
+
+		  <a href="contact.html" class="btn quote-btn">Request a Quote</a>
+		</div>
+      </div>
+
+	  
     </div>
 
     <p>
@@ -75,39 +117,20 @@
 
 
 <div id="footer-placeholder"></div>
+<script src="../floor-racks-data.js"></script>
 <script>
-  const rackData = [
-	{ U: 42, WIDTH: 600, DEPTH: 600, CODE: "R14199" },
-	{ U: 33, WIDTH: 600, DEPTH: 600, CODE: "R14149" },
-	{ U: 27, WIDTH: 600, DEPTH: 600, CODE: "R14099" },
-	{ U: 22, WIDTH: 600, DEPTH: 600, CODE: "R14049" },
-	{ U: 15, WIDTH: 600, DEPTH: 600, CODE: "R14019" },
-	{ U: 42, WIDTH: 600, DEPTH: 800, CODE: "R14210" },
-	{ U: 33, WIDTH: 600, DEPTH: 800, CODE: "R14160" },
-	{ U: 27, WIDTH: 600, DEPTH: 800, CODE: "R14110" },
-	{ U: 22, WIDTH: 600, DEPTH: 800, CODE: "R14060" },
-	{ U: 15, WIDTH: 600, DEPTH: 800, CODE: "R10023" },
-	{ U: 42, WIDTH: 600, DEPTH: 900, CODE: "R14232" },
-	{ U: 33, WIDTH: 600, DEPTH: 900, CODE: "R14180" },
-	{ U: 27, WIDTH: 600, DEPTH: 900, CODE: "R14105" },
-	{ U: 22, WIDTH: 600, DEPTH: 900, CODE: "R14130" },
-	{ U: 15, WIDTH: 600, DEPTH: 900, CODE: "R10024" },
-	{ U: 42, WIDTH: 800, DEPTH: 600, CODE: "R14230" },
-	{ U: 42, WIDTH: 800, DEPTH: 800, CODE: "R14220" },
-	{ U: 33, WIDTH: 800, DEPTH: 800, CODE: "R14168" },
-	{ U: 27, WIDTH: 800, DEPTH: 800, CODE: "R14040" },
-	{ U: 42, WIDTH: 800, DEPTH: 900, CODE: "R14250" },
-	{ U: 33, WIDTH: 800, DEPTH: 900, CODE: "R14170" },
-	{ U: 15, WIDTH: 800, DEPTH: 900, CODE: "R10025" },
-	{ U: 42, WIDTH: 800, DEPTH: 1000, CODE: "R14229" },
-	{ U: 33, WIDTH: 800, DEPTH: 1000, CODE: "R14172" }
-  ];
-
-
   const uSelect = document.getElementById("u-select");
   const widthSelect = document.getElementById("width-select");
   const depthSelect = document.getElementById("depth-select");
+  const sideCheckbox = document.getElementById("side-panels");
+  const frontDoorSelect = document.getElementById("front-door-type");
+  const rearOptionSelect = document.getElementById("rear-option");
+
   const codeEl = document.getElementById("rack-code");
+  const sideEl = document.getElementById("side-code");
+  const frontEl = document.getElementById("front-code");
+  const rearEl = document.getElementById("rear-code");
+  const heightEl = document.getElementById("rack-height");
   const datasheetEl = document.getElementById("rack-datasheet");
 
   function getUniqueValues(key) {
@@ -115,40 +138,66 @@
   }
 
   function populateAllDropdowns() {
-    uSelect.innerHTML = getUniqueValues("U").map(val => `<option value="${val}">${val}</option>`).join('');
-    widthSelect.innerHTML = getUniqueValues("WIDTH").map(val => `<option value="${val}">${val}</option>`).join('');
-    depthSelect.innerHTML = getUniqueValues("DEPTH").map(val => `<option value="${val}">${val}</option>`).join('');
+    uSelect.innerHTML = '<option value="">—</option>' + getUniqueValues("u").map(val => `<option value="${val}">${val}</option>`).join('');
+    widthSelect.innerHTML = '<option value="">—</option>' + getUniqueValues("width").map(val => `<option value="${val}">${val}</option>`).join('');
+    depthSelect.innerHTML = '<option value="">—</option>' + getUniqueValues("depth").map(val => `<option value="${val}">${val}</option>`).join('');
   }
 
   function updateOptions() {
     const selectedU = parseInt(uSelect.value);
-    const selectedWidth = parseInt(widthSelect.value);
-    const selectedDepth = parseInt(depthSelect.value);
+    const selectedWidth = widthSelect.value;
+    const selectedDepth = depthSelect.value;
+    const includeSide = sideCheckbox.checked;
+    const frontType = frontDoorSelect.value;
+    const rearType = rearOptionSelect.value;
 
     const match = rackData.find(
-      item => item.U === selectedU && item.WIDTH === selectedWidth && item.DEPTH === selectedDepth
+      item => item.u === selectedU && item.width === selectedWidth && item.depth === selectedDepth
     );
 
     if (match) {
-      codeEl.textContent = match.CODE;
-      datasheetEl.innerHTML = `<a href="../files/${match.CODE}.pdf" target="_blank" rel="noopener">Download PDF</a>`;
+      codeEl.textContent = match.frameCode;
+      heightEl.textContent = match.height;
+      datasheetEl.innerHTML = `<a href="../files/${match.frameCode}.pdf" target="_blank" rel="noopener">Download PDF</a>`;
+
+      sideEl.textContent = includeSide ? match.sidePanelsCode : "—";
+
+      switch (frontType) {
+        case "plexi": frontEl.textContent = match.plexiDoorCode; break;
+        case "blind": frontEl.textContent = match.blindDoorCode; break;
+        case "punched": frontEl.textContent = match.holePunchedDoorCode; break;
+        default: frontEl.textContent = "—";
+      }
+
+      switch (rearType) {
+        case "panel": rearEl.textContent = match.rearPanelCode; break;
+        case "plexi": rearEl.textContent = match.plexiDoorCode; break;
+        case "blind": rearEl.textContent = match.blindDoorCode; break;
+        case "punched": rearEl.textContent = match.holePunchedDoorCode; break;
+        default: rearEl.textContent = "—";
+      }
     } else {
-      codeEl.textContent = "No code available. Ask for a custom quote.";
+      codeEl.textContent = "—";
+      heightEl.textContent = "—";
       datasheetEl.textContent = "—";
+      sideEl.textContent = frontEl.textContent = rearEl.textContent = "—";
     }
   }
 
   document.addEventListener("DOMContentLoaded", () => {
     populateAllDropdowns();
-    uSelect.value = "42"; // default
+    uSelect.value = "42";
     widthSelect.value = "600";
-    depthSelect.value = "600";
+    depthSelect.value = "800";
     updateOptions();
   });
 
   uSelect.addEventListener("change", updateOptions);
   widthSelect.addEventListener("change", updateOptions);
   depthSelect.addEventListener("change", updateOptions);
+  sideCheckbox.addEventListener("change", updateOptions);
+  frontDoorSelect.addEventListener("change", updateOptions);
+  rearOptionSelect.addEventListener("change", updateOptions);
 </script>
 <script src="../main.js" defer></script>
 
