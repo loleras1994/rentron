@@ -5,6 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Επιδαπέδια Racks | Rentron ΑΕΒΕ</title>
+<meta name="description" content="Ανθεκτικά, αρθρωτά επιδαπέδια rack για τηλεπικοινωνιακές και βιομηχανικές εφαρμογές— προσαρμόσιμο ύψος, πλάτος, βάθος, πόρτες και πάνελ σε U." />
 <link href="../style.css" rel="stylesheet"/>
 <link href="../favicon.ico" rel="icon" type="image/x-icon"/>
 </head>
@@ -25,6 +26,17 @@
 </section>
 <section class="rack-detail">
 <div class="container">
+
+<p>Η σειρά Επιδαπέδιων Racks έχει σχεδιαστεί για προηγμένες εφαρμογές IT και τηλεπικοινωνιών, προσφέροντας βέλτιστη ροή αέρα, διαχείριση καλωδίων και εύκολη πρόσβαση.</p>
+<h3>Κύρια Χαρακτηριστικά</h3>
+<ul class="features-list">
+<li>Αρθρωτή κατασκευή με μπροστινή και πίσω πόρτα</li>
+<li>Διάτρητα πάνελ για εξαερισμό</li>
+<li>Διαθέσιμα με ρυθμιζόμενα πόδια ή ροδάκια</li>
+<li>Προαιρετικοί ανεμιστήρες και πολύπριζα</li>
+</ul>
+
+
 <div class="rack-layout">
 <img alt="Floor Standing Racks" class="rack-main-image" src="../images/floor-main.webp"/>
 <div class="rack-selector-box">
@@ -49,7 +61,7 @@
 <p><strong>Κωδικός Σκελετού Rack:</strong> <span id="rack-code">—</span></p>
 <p><strong>Τεχνικό Φυλλάδιο:</strong> <span id="rack-datasheet">—</span></p>
 </div>
-<a class="btn quote-btn" href="contact.html">Ζητήστε Προσφορά</a>
+
 </div>
 </div>
 
@@ -87,23 +99,19 @@
 			<p><strong>Επιλογή Πίσω:</strong> <span id="rear-code">—</span></p>
 		  </div>
 
-		  <a href="contact.html" class="btn quote-btn">Request a Quote</a>
+		  
 		</div>
       </div>
-
 </div>
-<p>Η σειρά Επιδαπέδιων Racks έχει σχεδιαστεί για προηγμένες εφαρμογές IT και τηλεπικοινωνιών, προσφέροντας βέλτιστη ροή αέρα, διαχείριση καλωδίων και εύκολη πρόσβαση.</p>
-<h3>Κύρια Χαρακτηριστικά</h3>
-<ul class="features-list">
-<li>Αρθρωτή κατασκευή με μπροστινή και πίσω πόρτα</li>
-<li>Διάτρητα πάνελ για εξαερισμό</li>
-<li>Διαθέσιμα με ρυθμιζόμενα πόδια ή ροδάκια</li>
-<li>Προαιρετικοί ανεμιστήρες και πολύπριζα</li>
-</ul>
+<div style="text-align: center; margin-top: 15px;">
+  <button id="request-quote" class="btn quote-btn">
+    Ζητήστε Προσφορά
+  </button>
+</div>
 </div>
 </section>
 <div id="footer-placeholder"></div>
-<script src="../floor-racks-data.js"></script>
+<script src="../floor-racks-data.js" defer></script>
 <script>
   const uSelect = document.getElementById("u-select");
   const widthSelect = document.getElementById("width-select");
@@ -124,9 +132,12 @@
   }
 
   function populateAllDropdowns() {
-    uSelect.innerHTML = '<option value="">—</option>' + getUniqueValues("u").map(val => `<option value="${val}">${val}</option>`).join('');
-    widthSelect.innerHTML = '<option value="">—</option>' + getUniqueValues("width").map(val => `<option value="${val}">${val}</option>`).join('');
-    depthSelect.innerHTML = '<option value="">—</option>' + getUniqueValues("depth").map(val => `<option value="${val}">${val}</option>`).join('');
+    uSelect.innerHTML = '<option value="">—</option>' +
+      getUniqueValues("u").map(val => `<option value="${val}">${val}</option>`).join('');
+    widthSelect.innerHTML = '<option value="">—</option>' +
+      getUniqueValues("width").map(val => `<option value="${val}">${val}</option>`).join('');
+    depthSelect.innerHTML = '<option value="">—</option>' +
+      getUniqueValues("depth").map(val => `<option value="${val}">${val}</option>`).join('');
   }
 
   function updateOptions() {
@@ -144,15 +155,15 @@
     if (match) {
       codeEl.textContent = match.frameCode;
       heightEl.textContent = match.height;
-      datasheetEl.innerHTML = `<a href="../files/${match.frameCode}.pdf" target="_blank" rel="noopener">Download PDF</a>`;
+      datasheetEl.innerHTML = `<a href="../files/${match.frameCode}.pdf" target="_blank" rel="noopener">Λήψη PDF</a>`;
 
-      sideEl.textContent = includeSide ? match.sidePanelsCode : "Δεν Επιλέχθηκε";
+      sideEl.textContent = includeSide ? match.sidePanelsCode : "Όχι";
 
       switch (frontType) {
         case "plexi": frontEl.textContent = match.plexiDoorCode; break;
         case "blind": frontEl.textContent = match.blindDoorCode; break;
         case "punched": frontEl.textContent = match.holePunchedDoorCode; break;
-        default: frontEl.textContent = "Δεν Επιλέχθηκε";
+        default: frontEl.textContent = "Όχι";
       }
 
       switch (rearType) {
@@ -160,10 +171,10 @@
         case "plexi": rearEl.textContent = match.plexiDoorCode; break;
         case "blind": rearEl.textContent = match.blindDoorCode; break;
         case "punched": rearEl.textContent = match.holePunchedDoorCode; break;
-        default: rearEl.textContent = "Δεν Επιλέχθηκε";
+        default: rearEl.textContent = "Όχι";
       }
     } else {
-      codeEl.textContent = "Ζητήστε Προσφορά με τις Διαστάσεις που Χρειάζεστε";
+      codeEl.textContent = "Ζητήστε Προσφορά για τις Διαστάσεις που χρειάζεστε";
       heightEl.textContent = "—";
       datasheetEl.textContent = "—";
       sideEl.textContent = frontEl.textContent = rearEl.textContent = "—";
@@ -185,6 +196,40 @@
   frontDoorSelect.addEventListener("change", updateOptions);
   rearOptionSelect.addEventListener("change", updateOptions);
 </script>
+
+<script>
+  document.getElementById('request-quote').addEventListener('click', () => {
+    const u         = document.getElementById('u-select').value;
+    const width     = document.getElementById('width-select').value;
+    const depth     = document.getElementById('depth-select').value;
+    const frameCode = document.getElementById('rack-code').textContent.trim();
+
+    const panelsSel = document.getElementById('side-panels').checked;
+    const sideCode  = panelsSel
+      ? document.getElementById('side-code').textContent.trim()
+      : '';
+
+    const frontType = document.getElementById('front-door-type').value;
+    const frontCode = frontType !== 'none'
+      ? document.getElementById('front-code').textContent.trim()
+      : '';
+
+    const rearType  = document.getElementById('rear-option').value;
+    const rearCode  = rearType !== 'none'
+      ? document.getElementById('rear-code').textContent.trim()
+      : '';
+
+    const params = new URLSearchParams({
+      u, width, depth, frameCode,
+      sideCode,
+      frontType, frontCode,
+      rearType,  rearCode
+    });
+
+    window.location.href = `/el/contact.html?${params.toString()}`;
+  });
+</script>
+
 <script src="../main.js" defer></script>
 </body>
 </html>

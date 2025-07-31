@@ -83,6 +83,107 @@
   </section>
 
 <div id="footer-placeholder"></div>
+
+<script>
+  function prefillFromQuery() {
+    const params    = new URLSearchParams(window.location.search);
+    // bail out if no params
+    if (![...params].length) return;
+    
+    const doorMap   = { plexi:'Πόρτα με Πλέξι', blind:'Τυφλή Πόρτα', punched:'Διάτρητη Πόρτα' };
+    const rackSuffix= key => key==='u'?'U':(key==='width'||key==='depth')?' mm':'';
+
+    // 1) detect custom
+    const frameCode = params.get('frameCode')||'';
+    const isCustom  = !frameCode
+      || frameCode.toLowerCase().includes('ζητήστε προσφορά');
+
+    // 2) intro
+    const introLine = isCustom
+      ? 'Θα ήθελα να ζητήσω προσφορά για εξατομικευμένο rack διαμορφωμένο ως εξής:'
+      : 'Θα ήθελα να ζητήσω προσφορά για ένα rack διαμορφωμένο ως εξής:';
+
+    // 3) rack specs
+    const rackKeys   = ['u','width','depth'];
+    const rackLabels = { u:'Ύψος', width:'Πλάτος', depth:'Βάθος' };
+    const rackLines  = rackKeys.map(k=>{
+      const v = params.get(k)||'—';
+      return `- ${rackLabels[k]}: ${v}${rackSuffix(k)}`;
+    });
+
+    // 4) side panels
+    const sideCode = params.get('sideCode');
+    const sideLine = isCustom
+      ? `- Πλαϊνά: ${sideCode?'Ναι':'Όχι'}`
+      : `- Πλαϊνά: ${sideCode||'Όχι'}`;
+
+    // 5) front door
+    const frontType = params.get('frontType');
+    const frontCode = params.get('frontCode');
+    let frontLine;
+    if (isCustom) {
+      frontLine = `- Εμπρός Πόρτα: ${
+        frontType && frontType!=='none'
+          ? doorMap[frontType]||frontType
+          : 'Όχι'
+      }`;
+    } else {
+      frontLine = frontCode
+        ? `- Εμπρός Πόρτα: ${doorMap[frontType]||frontType} (${frontCode})`
+        : `- Εμπρός Πόρτα: Όχι`;
+    }
+
+    // 6) rear option
+    const rearType = params.get('rearType');
+    const rearCode = params.get('rearCode');
+    let rearLine;
+    if (isCustom) {
+      rearLine = `- Πίσω: ${
+        rearType && rearType!=='none'
+          ? (rearType==='panel'
+             ? 'Πάνελ'
+             : doorMap[rearType]||rearType)
+          : 'Όχι'
+      }`;
+    } else {
+      if (!rearType || rearType==='none')
+        rearLine = `- Πίσω: Όχι`;
+      else if (rearType==='panel')
+        rearLine = `- Πίσω: Πάνελ (${rearCode})`;
+      else
+        rearLine = `- Πίσω: ${doorMap[rearType]||rearType} (${rearCode})`;
+    }
+
+    // 7) assemble message
+    const lines = [
+      'Γειά σας,',
+      '',
+      introLine,
+      ...rackLines
+    ];
+
+    // include frame code only if not custom
+    if (!isCustom) {
+      lines.push(`- Κωδικός Πλαισίου Rack: ${frameCode}`);
+    }
+
+    lines.push(
+      '',        
+      sideLine,
+      frontLine,
+      rearLine,
+      '',
+      'Παρακαλώ ενημερώστε με για την τιμή και τον χρόνο παράδοσης.',
+      '',
+      'Ευχαριστώ.'
+    );
+
+    document.getElementById('message').value = lines.join('\n');
+  }
+
+  window.addEventListener('DOMContentLoaded', prefillFromQuery);
+</script>
+
   <script src="../main.js" defer></script>
 </body>
 </html>
