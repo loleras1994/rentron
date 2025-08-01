@@ -19,49 +19,82 @@
 </div>
 <header id="main-header"></header>
 
-<section class="hero">
-<div class="container">
-  <h1>Floor Standing Racks</h1>
-  <p>Durable and customizable racks for telecom and industrial applications.</p>
+  <section class="hero">
+    <div class="container">
+      <h1>Floor Standing Racks</h1>
+      <p>Optimized airflow, cable management, and security for telecom & industrial environments.</p>
+      <p>Configure your ideal rack in seconds — select height, width, depth, doors & panels below.</p>
+      <div class="trust-badges">
+        <span class="badge">ISO 9001 Certified</span> | 
+        <span class="badge">5-Year Warranty</span> 
+      </div>
+    </div>
+  </section>
+
+<section class="page-content">
+<h3>Overview</h3>
+<p>The CR-10 floor-standing racks by Rentron SA are designed for demanding telecom, electronic, and AV installations.
+They combine years of engineering experience with modular features to ensure fast installation and robust performance.</p>
+
+<div class="about-columns">
+<div>
+<h3>Key Features</h3>
+<ul>
+<li>Steel frame (1.5–2.0 mm) for maximum rigidity</li>
+<li>4 adjustable 19” rails, depth-adjustable in 20 mm steps</li>
+<li>Fan tray slots with access from inside or outside</li>
+<li>Mounting base for casters or leveling feet</li>
+<li>Optional dust filters and grounding bolts</li>
+</ul>
+</div>
+<div>
+<h3>Panels &amp; Doors</h3>
+<ul>
+<li>Removable side panels with snap-locks</li>
+<li>Front door with Plexiglass and two-point swing handle lock</li>
+<li>Perforated or full metal door options</li>
+<li>Rear panel with spring pins and cable cutouts</li>
+<li>180° door opening, reversible left/right</li>
+</ul>
+</div>
+<div>
+<h3>Compliance &amp; Build</h3>
+<ul>
+<li>Complies with IEC 297-2, DIN 41494, EN 60950, BS 5954</li>
+<li>Powder-coated polyester paint (anthracite &amp; RAL 7032) or Black</li>
+<li>Height extension option (100 mm base)</li>
+<li>ISO 9001:2015 certified</li>
+<li>Made in Greece</li>
+</ul>
+</div>
 </div>
 </section>
 
 <section class="rack-detail">
   <div class="container">
-    <p>
-      The Floor Standing Racks series is designed for high-end IT and telecom applications,
-      offering optimal airflow, cable management, and easy access.
-    </p>
-    <h3>Main Features</h3>
-    <ul class="features-list">
-      <li>Modular construction with front and rear doors</li>
-      <li>Perforated steel panels for ventilation</li>
-      <li>Available with adjustable feet or casters</li>
-      <li>Available with optional fan units and power strips</li>
-    </ul>
     <div class="rack-layout">
       <img src="../images/floor-main.webp" alt="Floor Standing Racks" class="rack-main-image" />
-
+	
       <div class="rack-selector-box">
-        <h3>Available Rack Frame Sizes</h3>
+        <h3>Select Your Frame Size</h3>
 		<div class="rack-selector">
 		  <div class="rack-dropdowns">
 			<div class="select-row">
-			  <label for="u-select">U Height:</label>
-			  <select id="u-select"></select>
+			  <label for="u-select">Height (U):</label>
+			  <select id="u-select"><option value="">Please select</option></select>
 			</div>
 			<div class="select-row">
 			  <label for="width-select">Width (mm):</label>
-			  <select id="width-select"></select>
+			  <select id="width-select"><option value="">Please select</option></select>
 			</div>
 			<div class="select-row">
 			  <label for="depth-select">Depth (mm):</label>
-			  <select id="depth-select"></select>
+			  <select id="depth-select"><option value="">Please select</option></select>
 			</div>
 		  </div>
 
 		  <div class="rack-results">
-			<p><strong>Height (mm):</strong> <span id="rack-height">—</span></p>
+			<p><strong>Overall Height (mm):</strong> <span id="rack-height">—</span></p>
 			<p><strong>Rack Frame Code:</strong> <span id="rack-code">—</span></p>
 			<p><strong>Datasheet:</strong> <span id="rack-datasheet">—</span></p>
 		  </div>
@@ -70,7 +103,7 @@
 	  
 	  
       <div class="rack-selector-box">
-        <h3>Available Front-Rear-Side Panels & Doors</h3>
+        <h3>Choose Panels & Doors</h3>
 		<div class="rack-selector">
 		  <div class="rack-dropdowns">
 			<div class="select-row">
@@ -103,15 +136,14 @@
 			<p><strong>Rear:</strong> <span id="rear-code">—</span></p>
 		  </div>
 		</div>
-      </div>
-
-	  
-    </div>
-	<div style="text-align: center; margin-top: 15px;">
+	<div>
 	  <button id="request-quote" class="btn quote-btn">
 		Request a Quote
 	  </button>
 	</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -138,9 +170,9 @@
   }
 
   function populateAllDropdowns() {
-    uSelect.innerHTML = '<option value="">—</option>' + getUniqueValues("u").map(val => `<option value="${val}">${val}</option>`).join('');
-    widthSelect.innerHTML = '<option value="">—</option>' + getUniqueValues("width").map(val => `<option value="${val}">${val}</option>`).join('');
-    depthSelect.innerHTML = '<option value="">—</option>' + getUniqueValues("depth").map(val => `<option value="${val}">${val}</option>`).join('');
+    uSelect.innerHTML = getUniqueValues("u").map(val => `<option value="${val}">${val}</option>`).join('');
+    widthSelect.innerHTML = getUniqueValues("width").map(val => `<option value="${val}">${val}</option>`).join('');
+    depthSelect.innerHTML = getUniqueValues("depth").map(val => `<option value="${val}">${val}</option>`).join('');
   }
 
   function updateOptions() {
@@ -176,11 +208,14 @@
         case "punched": rearEl.textContent = match.holePunchedDoorCode; break;
         default: rearEl.textContent = "Not Selected";
       }
+	  // standard rack: restore the normal button text
+	  document.getElementById('request-quote').textContent = 'Request a Quote';
     } else {
-      codeEl.textContent = "Ask for a Custom Quote";
+      codeEl.textContent = "—";
       heightEl.textContent = "—";
       datasheetEl.textContent = "—";
       sideEl.textContent = frontEl.textContent = rearEl.textContent = "—";
+	  document.getElementById('request-quote').textContent = 'Ask for a Custom Quote';
     }
   }
 
@@ -232,7 +267,7 @@
       rearType,  rearCode
     });
 
-    window.location.href = `/rentron/en/contact.html?${params.toString()}`;
+    window.location.href = `/en/contact.html?${params.toString()}`;
   });
 </script>
 

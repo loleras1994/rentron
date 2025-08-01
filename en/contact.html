@@ -96,7 +96,7 @@
     // 1) detect custom
     const frameCode = params.get('frameCode')||'';
     const isCustom  = !frameCode
-      || frameCode.toLowerCase().includes('ask for a custom quote');
+      || frameCode.toLowerCase().includes('—');
 
     // 2) intro
     const introLine = isCustom
