@@ -30,7 +30,9 @@
   <section class="contact">
     <div class="container">
       <h3 style="text-align: center;">Send us a message</h3>
-      <form action="../send.php" method="POST">
+      <form id="contact-form">
+		<input type="hidden" name="lang" value="en">
+
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" required />
 
@@ -43,16 +45,18 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" required></textarea>
 
-        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+        <div class="g-recaptcha" data-sitekey="6LeAWpcrAAAAACtHMQSB-xJRyjQHmSXmekgFPOMQ"></div>
         <br>
 
         <button type="submit">Send</button>
-      
+        <div id="form-response" style="margin-top: 15px; color: green;"></div>  
   <label style="margin-top: 10px; display: block;">
     <input type="checkbox" name="consent" required>
     I agree that Rentron may store and process my personal data according to the 
     <a href="/rentron/en/privacy&cookie-policy.html" target="_blank">Privacy & Cookie Policy</a>.
   </label>
+
+
 
 </form>
     </div>
@@ -184,12 +188,33 @@
   window.addEventListener('DOMContentLoaded', prefillFromQuery);
 </script>
 
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
 
-
-
-
-
-
+  fetch("../send.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    const responseDiv = document.getElementById("form-response");
+    responseDiv.textContent = data;
+    responseDiv.style.color = data.toLowerCase().includes("success") ? "green" : "red";
+    form.reset();
+    if (typeof grecaptcha !== 'undefined') {
+      grecaptcha.reset();
+    }
+  })
+  .catch(error => {
+    const responseDiv = document.getElementById("form-response");
+    responseDiv.textContent = "An error occurred. Please try again.";
+    responseDiv.style.color = "red";
+  });
+});
+</script>
   <script src="../main.js" defer></script>
 </body>
 </html>
