@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,7 +30,9 @@
   <section class="contact">
     <div class="container">
       <h3 style="text-align: center;">Στείλτε μας ένα μήνυμα</h3>
-      <form action="../send.php" method="POST">
+      <form id="contact-form">
+		<input type="hidden" name="lang" value="el">
+
         <label for="name">Ονοματεπώνυμο</label>
         <input type="text" id="name" name="name" required />
 
@@ -43,16 +45,18 @@
         <label for="message">Μήνυμα</label>
         <textarea id="message" name="message" required></textarea>
 
-        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+        <div class="g-recaptcha" data-sitekey="6LeAWpcrAAAAACtHMQSB-xJRyjQHmSXmekgFPOMQ"></div>
         <br>
 
         <button type="submit">Αποστολή</button>
-      
+    <div id="form-response" style="margin-top: 15px; color: green;"></div>      
   <label style="margin-top: 10px; display: block;">
     <input type="checkbox" name="consent" required>
     Συμφωνώ ώστε η Rentron να αποθηκεύσει και να επεξεργαστεί τα προσωπικά μου δεδομένα σύμφωνα με την 
     <a href="/rentron/el/privacy&cookie-policy.html" target="_blank">Πολιτική Απορρήτου & Cookies</a>.
   </label>
+
+
 
 </form>
     </div>
@@ -68,7 +72,7 @@
           <div style="width: 100%; height: 300px; border-radius: 8px; overflow: hidden;">
             <iframe title="Rentron Γραφεία - Παλαιό Φάληρο" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3119.295604829224!2d23.6927781!3d37.9321826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bc3d5ccdfad3%3A0xfdad202b3629edfb!2sRentron%20S.A.!5e0!3m2!1sel!2sgr!4v1718980000000!5m2!1sel!2sgr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-          <p style="margin-top: 10px;">44 Atlantos St, Palaio Faliro 175 61<br>Tel.: +30 210 9820564<br>Email: info@rentron.gr</p>
+          <p style="margin-top: 10px;">Ατλάντος 44, Παλαιό Φάληρο 175 61<br>Τηλ.: +30 210 9820564<br>Email: info@rentron.gr</p>
         </div>
 
         <div style="flex: 1 1 400px; max-width: 600px;">
@@ -76,7 +80,7 @@
           <div style="width: 100%; height: 300px; border-radius: 8px; overflow: hidden;">
             <iframe title="Rentron Εργοστάσιο - Κόρινθος" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3130.6248088931733!2d22.973518511407146!3d37.92806527952621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a015c1b578bd17%3A0x62202b08ddd895ca!2sRENTRON%20S.A.%20SHEET%20METAL%20CONSTRUCTIONS!5e0!3m2!1sel!2sgr!4v1718988888888!5m2!1sel!2sgr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-          <p style="margin-top: 10px;">Old Athens-Corinth National Road 72th km, Loutraki 203 00<br>Tel.: +30 27410 25528<br>Email: ergo@rentron.gr</p>
+          <p style="margin-top: 10px;">Παλαιά ΕΟ Αθηνών Κορίνθου 72th km, Λουτράκι 203 00<br>Τηλ.: +30 27410 25528<br>Email: ergo@rentron.gr</p>
         </div>
       </div>
     </div>
@@ -182,6 +186,35 @@
   }
 
   window.addEventListener('DOMContentLoaded', prefillFromQuery);
+</script>
+
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch("../send.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    const responseDiv = document.getElementById("form-response");
+    responseDiv.textContent = data;
+    responseDiv.style.color = data.toLowerCase().includes("success") ? "green" : "red";
+    form.reset();
+    if (typeof grecaptcha !== 'undefined') {
+      grecaptcha.reset();
+    }
+  })
+  .catch(error => {
+    const responseDiv = document.getElementById("form-response");
+    responseDiv.textContent = "Παρουσιάστηκε σφάλμα. Παρακαλώ δοκιμάστε ξανά.";
+    responseDiv.style.color = "red";
+  });
+});
 </script>
 
   <script src="../main.js" defer></script>
