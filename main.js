@@ -1,3 +1,30 @@
+;(function(){
+  // 1) Find your style.css link
+  var cssLink = document.querySelector('link[rel="stylesheet"][href*="style.css"]');
+  if (!cssLink) return;
+
+  // 2) Change it to preload (starts download but doesn’t block render)
+  cssLink.rel = 'preload';
+  cssLink.as  = 'style';
+
+  // 3) When it finishes loading, flip it back to a real stylesheet
+  cssLink.addEventListener('load', function onLoad() {
+    cssLink.rel = 'stylesheet';
+    cssLink.removeEventListener('load', onLoad);
+  });
+
+  // 4) Fallback for older browsers: force it to stylesheet after 3s
+  setTimeout(function(){
+    if (cssLink.rel !== 'stylesheet') {
+      cssLink.rel = 'stylesheet';
+    }
+  }, 3000);
+})();
+
+
+
+
+
 // Load HEADER and attach event listeners after it's injected
 document.addEventListener("DOMContentLoaded", function () {
   fetch("header.html")
