@@ -81,3 +81,4 @@ ErrorDocument 404 /404.html
 <IfModule mod_headers.c>
   Header edit Set-Cookie ^(.*)$ "$1; HttpOnly; Secure; SameSite=Strict"
 </IfModule>
+
