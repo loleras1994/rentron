@@ -228,6 +228,15 @@ function showConsentBannerIfNeeded() {
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("img").forEach(img => {
+    // Skip images you want to load eagerly
+    if (img.closest(".hero") || img.hasAttribute("data-no-lazy")) return;
+    if (!img.hasAttribute("loading")) {
+      img.setAttribute("loading", "lazy");
+    }
+  });
+});
 
 
 
