@@ -296,7 +296,7 @@ body {
 }
 
 .about-image-band {
-  background: url('../images/factory.webp') center/cover no-repeat;
+  background: url('/rentron/images/factory.webp') center/cover no-repeat;
   background-size: cover;
   height: 280px;
   margin: 40px 0;
