@@ -232,7 +232,7 @@ nav a:hover {
 
 /* Products Section */
 .products {
-  background: #e0ecf5;/*#eef2f5;*/
+  background: #e0ecf5;
   padding: 40px 0;
 }
 
@@ -526,6 +526,20 @@ nav a:hover {
 .contact button:hover {
   background: #007cb5;
 }
+
+/* === Consent label, inline-grid with top-aligned checkbox === */
+.consent-label {
+  display: inline-grid;
+  grid-template-columns: auto 1fr;  /* col1=box, col2=text */
+  column-gap: 8px;                  /* space between box + text */
+  align-items: baseline;            /* align box to the text’s first baseline */
+  margin-top: 10px;                 /* your existing spacing */
+}
+
+.consent-text {
+  grid-column: 2;                   /* keep all text in the second column */
+}
+
 
 /* Footer */
 footer {
@@ -1634,4 +1648,11 @@ html {
   width: clamp(120px, 60vw, 300px);
   height: auto;
 }
+
+
+
+
+
+
+
 
