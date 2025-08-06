@@ -104,8 +104,8 @@
 
     // 2) intro
     const introLine = isCustom
-      ? 'I’d like to request a quote for a custom rack configured as follows:'
-      : 'I’d like to request a quote for a rack configured as follows:';
+      ? 'I’d like to request a quote for custom racks configured as follows:'
+      : 'I’d like to request a quote for racks configured as follows:';
 
     // 3) rack specs
     const rackKeys   = ['u','width','depth'];
@@ -114,6 +114,10 @@
       const v = params.get(k)||'—';
       return `- ${rackLabels[k]}: ${v}${rackSuffix(k)}`;
     });
+
+    // 3.1) quantity
+    const quantity = params.get('quantity') || '—';
+    rackLines.push(`- Quantity: ${quantity}`);
 
     // 4) side panels
     const sideCode = params.get('sideCode');
