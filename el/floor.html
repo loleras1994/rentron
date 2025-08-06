@@ -83,6 +83,19 @@
   <select id="depth-select"><option value="">Επιλέξτε</option></select>
 </div>
 </div>
+<div class="select-row"
+   style="display:flex;
+		flex-direction:row;
+		justify-content:center;
+		align-items:center;
+		gap:0.5ch;">
+  <label for="quantity-input">Ποσότητα:</label>
+  <input type="number"
+	 id="quantity-input"
+	 min="1"
+	 value="1"
+	 style="width:5.5ch;">
+</div>
 <div class="rack-results">
 <p><strong>Συνολικό Ύψος (mm):</strong> <span id="rack-height">—</span></p>
 <p><strong>Κωδικός Σκελετού Rack:</strong> <span id="rack-code">—</span></p>
@@ -151,6 +164,7 @@
   const rearEl = document.getElementById("rear-code");
   const heightEl = document.getElementById("rack-height");
   const datasheetEl = document.getElementById("rack-datasheet");
+  const qtyInput    = document.getElementById("quantity-input");
 
   function getUniqueValues(key) {
     return [...new Set(rackData.map(item => item[key]))].sort((a, b) => a - b);
@@ -169,6 +183,7 @@
     const includeSide = sideCheckbox.checked;
     const frontType = frontDoorSelect.value;
     const rearType = rearOptionSelect.value;
+	const quantity = parseInt(qtyInput.value, 10) || 1;
 
     const match = rackData.find(
       item => item.u === selectedU && item.width === selectedWidth && item.depth === selectedDepth
@@ -177,7 +192,7 @@
     if (match) {
       codeEl.textContent = match.frameCode;
       heightEl.textContent = match.height;
-      datasheetEl.innerHTML = `<a href="../files/${match.frameCode}.pdf" target="_blank" rel="noopener">Αρχείο PDF</a>`;
+      datasheetEl.innerHTML = `<a href="../files/rack/${selectedU}U.pdf" target="_blank" rel="noopener">Αρχείο PDF</a>`;
 
       sideEl.textContent = includeSide ? match.sidePanelsCode : "Όχι";
 
@@ -220,12 +235,14 @@
   sideCheckbox.addEventListener("change", updateOptions);
   frontDoorSelect.addEventListener("change", updateOptions);
   rearOptionSelect.addEventListener("change", updateOptions);
+  qtyInput.addEventListener("change", updateOptions);
 </script><script>
   document.getElementById('request-quote').addEventListener('click', () => {
     const u         = document.getElementById('u-select').value;
     const width     = document.getElementById('width-select').value;
     const depth     = document.getElementById('depth-select').value;
     const frameCode = document.getElementById('rack-code').textContent.trim();
+	const quantity   = qtyInput.value;
 
     // Side panels
     const panelsSel = document.getElementById('side-panels').checked;
@@ -246,7 +263,7 @@
       : '';
 
     const params = new URLSearchParams({
-      u, width, depth, frameCode,
+      u, width, depth, frameCode, quantity,
       sideCode,
       frontType, frontCode,
       rearType,  rearCode

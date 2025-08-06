@@ -103,8 +103,8 @@
 
     // 2) intro
     const introLine = isCustom
-      ? 'Θα ήθελα να ζητήσω προσφορά για εξατομικευμένο rack διαμορφωμένο ως εξής:'
-      : 'Θα ήθελα να ζητήσω προσφορά για ένα rack διαμορφωμένο ως εξής:';
+      ? 'Θα ήθελα να ζητήσω προσφορά για εξατομικευμένα rack διαμορφωμένα ως εξής:'
+      : 'Θα ήθελα να ζητήσω προσφορά για rack διαμορφωμένα ως εξής:';
 
     // 3) rack specs
     const rackKeys   = ['u','width','depth'];
@@ -113,6 +113,10 @@
       const v = params.get(k)||'—';
       return `- ${rackLabels[k]}: ${v}${rackSuffix(k)}`;
     });
+
+    // 3.1) quantity
+    const quantity = params.get('quantity') || '—';
+    rackLines.push(`- Ποσότητα: ${quantity}`);
 
     // 4) side panels
     const sideCode = params.get('sideCode');
